@@ -298,7 +298,7 @@ class _WalletTopupState extends State<WalletTopup> {
                       ),
                       Divider(
                         thickness: 2,
-                        color: warnaApp.primaryContainer,
+                        color: warnaApp.primaryContainer.withOpacity(0.6),
                         height: 15,
                       ),
                     ],
