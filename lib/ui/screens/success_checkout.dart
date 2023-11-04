@@ -23,7 +23,7 @@ class SuccessCheckout extends StatelessWidget {
                   //container icon
                   child: Row(
                     children: [
-                      Container(
+                      SizedBox(
                         width: 48,
                         height: 70,
                         child: IconButton(
