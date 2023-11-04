@@ -2,7 +2,7 @@
 
 import 'package:flutix/ui/screens/success_checkout.dart';
 import 'package:flutix/ui/screens/user_profiling_1.dart';
-import 'package:flutix/ui/screens/wallet.dart';
+import 'package:flutix/ui/screens/wallet_top_up.dart';
 import 'package:flutix/ui/widgets/bottom_nav_bar.dart';
 import 'package:flutix/ui/widgets/scroll_behaviour.dart';
 import 'package:flutix/ui/widgets/theme_data.dart';
