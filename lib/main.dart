@@ -2,6 +2,7 @@
 
 import 'package:flutix/ui/screens/success_checkout.dart';
 import 'package:flutix/ui/screens/user_profiling_1.dart';
+import 'package:flutix/ui/screens/wallet.dart';
 import 'package:flutix/ui/screens/wallet_top_up.dart';
 import 'package:flutix/ui/widgets/bottom_nav_bar.dart';
 import 'package:flutix/ui/widgets/scroll_behaviour.dart';
@@ -27,12 +28,13 @@ class MyApp extends StatelessWidget {
       },
       routes: {
         "/successCheckout": (context) => SuccessCheckout(),
-        "/wallet": (context) => WalletTopup(),
+        "/wallet": (context) => Wallet(),
+        "/walletTopUp": (context) => WalletTopup(),
         "/userProfiling1": (context) => UserProfiling1(),
         "/home": (context) => BottomNavScreen(),
       },
       theme: temaApp,
-      initialRoute: "/successCheckout",
+      initialRoute: "/wallet",
     );
   }
 }

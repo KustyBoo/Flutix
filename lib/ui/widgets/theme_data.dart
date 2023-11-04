@@ -70,6 +70,30 @@ TextTheme teksApp = TextTheme(
     fontWeight: FontWeight.w700,
     color: warnaApp.onSecondary,
   ),
+
+  // tulisan uang di card wallet
+  labelLarge: TextStyle(
+    fontSize: 40,
+    fontFamily: "Oswald",
+    fontWeight: FontWeight.w200,
+    color: warnaApp.onSecondary,
+  ),
+
+  // tulisan di card wallet
+  labelMedium: TextStyle(
+    fontSize: 18,
+    fontFamily: "Oswald",
+    fontWeight: FontWeight.w200,
+    color: warnaApp.onSecondary,
+  ),
+
+  // tulisan di wallet top up history
+  labelSmall: TextStyle(
+    fontSize: 18,
+    fontFamily: "Raleway",
+    fontWeight: FontWeight.w200,
+    color: warnaApp.secondary,
+  )
 );
 
 ElevatedButtonThemeData mainBtnApp = ElevatedButtonThemeData(
