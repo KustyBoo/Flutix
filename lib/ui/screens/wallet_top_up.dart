@@ -6,14 +6,14 @@ import 'package:flutix/ui/widgets/text_field.dart';
 import 'package:flutix/ui/widgets/theme_data.dart';
 import 'package:flutter/material.dart';
 
-class Wallet extends StatefulWidget {
-  const Wallet({super.key});
+class WalletTopup extends StatefulWidget {
+  const WalletTopup({super.key});
 
   @override
-  State<Wallet> createState() => _WalletState();
+  State<WalletTopup> createState() => _WalletTopupState();
 }
 
-class _WalletState extends State<Wallet> {
+class _WalletTopupState extends State<WalletTopup> {
   bool btnClicked1 = false;
   bool btnClicked2 = false;
   bool btnClicked3 = false;

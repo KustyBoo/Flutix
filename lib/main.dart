@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       },
       routes: {
         "/successCheckout": (context) => SuccessCheckout(),
-        "/wallet": (context) => Wallet(),
+        "/wallet": (context) => WalletTopup(),
         "/userProfiling1": (context) => UserProfiling1(),
         "/home": (context) => BottomNavScreen(),
       },
