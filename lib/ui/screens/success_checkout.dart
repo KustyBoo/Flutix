@@ -1,8 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:dotted_line/dotted_line.dart';
-import 'package:flutix/ui/widgets/theme_data.dart';
-import 'package:flutter/material.dart';
+part of 'screens.dart';
 
 class SuccessCheckout extends StatelessWidget {
   const SuccessCheckout({super.key});

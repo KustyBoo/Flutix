@@ -1,8 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:flutix/ui/widgets/theme_data.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
+part of 'screens.dart';
 
 class ProfileSetting extends StatelessWidget {
   @override

@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:flutix/ui/widgets/elevated_btn_icon.dart';
-import 'package:flutter/material.dart';
+part of 'screens.dart';
 
 class UserProfiling1 extends StatefulWidget {
   @override

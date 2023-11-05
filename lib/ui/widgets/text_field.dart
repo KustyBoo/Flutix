@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, must_be_immutable
 
-import 'package:flutix/ui/widgets/theme_data.dart';
-import 'package:flutter/material.dart';
+part of 'widgets.dart';
 
 class TextFLD extends StatelessWidget {
   TextFLD({super.key, required this.teksHint, required this.teks});

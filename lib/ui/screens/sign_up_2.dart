@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
-
-import 'package:flutter/material.dart';
+part of 'screens.dart';
 
 class SignUp2 extends StatelessWidget {
   @override

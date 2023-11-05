@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/material.dart';
+part of 'widgets.dart';
 
 ColorScheme warnaApp = ColorScheme.fromSeed(
   seedColor: Color(0xFFFEFAE0),

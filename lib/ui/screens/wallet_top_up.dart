@@ -1,10 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:dotted_line/dotted_line.dart';
-import 'package:flutix/ui/widgets/elevated_btn_icon.dart';
-import 'package:flutix/ui/widgets/text_field.dart';
-import 'package:flutix/ui/widgets/theme_data.dart';
-import 'package:flutter/material.dart';
+part of 'screens.dart';
 
 class WalletTopup extends StatefulWidget {
   const WalletTopup({super.key});
