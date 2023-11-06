@@ -5,6 +5,7 @@ import 'package:dotted_line/dotted_line.dart';
 
 part 'sign_up_1.dart';
 part 'sign_up_2.dart';
+part 'checkout_page.dart';
 part 'profile_setting.dart';
 part 'success_checkout.dart';
 part 'user_profiling_1.dart';

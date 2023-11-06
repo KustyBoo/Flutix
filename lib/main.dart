@@ -28,9 +28,10 @@ class MyApp extends StatelessWidget {
         "/walletTopUp": (context) => WalletTopup(),
         "/userProfiling1": (context) => UserProfiling1(),
         "/home": (context) => BottomNavScreen(),
+        "/tes": (context) => CheckoutPage(), // buat tes halaman
       },
       theme: temaApp,
-      initialRoute: "/wallet",
+      initialRoute: "/home",
     );
   }
 }
