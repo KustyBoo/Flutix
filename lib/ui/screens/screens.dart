@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../widgets/widgets.dart';
 import 'package:dotted_line/dotted_line.dart';
 
-
+part 'sign_up_1.dart';
 part 'sign_up_2.dart';
 part 'profile_setting.dart';
 part 'success_checkout.dart';
