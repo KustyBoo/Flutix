@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:flutix/ui/screens/login_page.dart';
 import 'package:flutter/material.dart';
 
 import 'ui/widgets/widgets.dart';
@@ -29,9 +30,12 @@ class MyApp extends StatelessWidget {
         "/userProfiling1": (context) => UserProfiling1(),
         "/home": (context) => BottomNavScreen(),
         "/tes": (context) => CheckoutPage(), // buat tes halaman
+        "/signup":(context)=> SignUp1(),
+        "/login":(context) => LoginPage(),
+        
       },
       theme: temaApp,
-      initialRoute: "/home",
+      initialRoute: "/login",
     );
   }
 }
