@@ -5,9 +5,8 @@ class JadwalFilm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double buttonWidth =
-        MediaQuery.of(context).size.width * 0.2; // Adjust as needed
-    double buttonHeight = 50; // You can adjust the height as needed
+    double buttonWidth = MediaQuery.of(context).size.width * 0.2;
+    double buttonHeight = 50;
     return SafeArea(
       child: Scaffold(
         body: Stack(
@@ -101,17 +100,14 @@ class JadwalFilm extends StatelessWidget {
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Container(
-                                    width: MediaQuery.of(context).size.height *
-                                        0.08,
-                                    height: MediaQuery.of(context).size.height *
-                                        0.08,
+                                    width: MediaQuery.of(context).size.height *0.08,
+                                    height: MediaQuery.of(context).size.height *0.08,
                                     decoration: BoxDecoration(
                                       color: Colors.brown,
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           "25",
@@ -143,10 +139,8 @@ class JadwalFilm extends StatelessWidget {
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Container(
-                                    width: MediaQuery.of(context).size.height *
-                                        0.08,
-                                    height: MediaQuery.of(context).size.height *
-                                        0.08,
+                                    width: MediaQuery.of(context).size.height *0.08,
+                                    height: MediaQuery.of(context).size.height *0.08,
                                     decoration: BoxDecoration(
                                       color: Colors.brown,
                                       borderRadius: BorderRadius.circular(10),
@@ -185,10 +179,8 @@ class JadwalFilm extends StatelessWidget {
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Container(
-                                    width: MediaQuery.of(context).size.height *
-                                        0.08,
-                                    height: MediaQuery.of(context).size.height *
-                                        0.08,
+                                    width: MediaQuery.of(context).size.height *0.08,
+                                    height: MediaQuery.of(context).size.height *0.08,
                                     decoration: BoxDecoration(
                                       color: Colors.brown,
                                       borderRadius: BorderRadius.circular(10),
@@ -227,10 +219,8 @@ class JadwalFilm extends StatelessWidget {
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Container(
-                                    width: MediaQuery.of(context).size.height *
-                                        0.08,
-                                    height: MediaQuery.of(context).size.height *
-                                        0.08,
+                                    width: MediaQuery.of(context).size.height *0.08,
+                                    height: MediaQuery.of(context).size.height *0.08,
                                     decoration: BoxDecoration(
                                       color: Colors.brown,
                                       borderRadius: BorderRadius.circular(10),
@@ -269,10 +259,8 @@ class JadwalFilm extends StatelessWidget {
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Container(
-                                    width: MediaQuery.of(context).size.height *
-                                        0.08,
-                                    height: MediaQuery.of(context).size.height *
-                                        0.08,
+                                    width: MediaQuery.of(context).size.height *0.08,
+                                    height: MediaQuery.of(context).size.height *0.08,
                                     decoration: BoxDecoration(
                                       color: Colors.brown,
                                       borderRadius: BorderRadius.circular(10),
@@ -321,7 +309,7 @@ class JadwalFilm extends StatelessWidget {
                               textAlign: TextAlign.left,
                             ),
                           ),
-                          Spacer(), // Add Spacer to push the next text to the right edge
+                          Spacer(),
                           Container(
                             margin: EdgeInsets.only(right: 20),
                             child: Text(
@@ -368,7 +356,7 @@ class JadwalFilm extends StatelessWidget {
                           ),
                           ElevatedButton(
                             onPressed: () {
-                              // Add action for the button, e.g., navigate or perform some operation
+                              
                             },
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(buttonWidth, buttonHeight),
@@ -386,7 +374,7 @@ class JadwalFilm extends StatelessWidget {
                         children: [
                           ElevatedButton(
                             onPressed: () {
-                              // Add action for the button, e.g., navigate or perform some operation
+
                             },
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(buttonWidth, buttonHeight),
@@ -397,7 +385,7 @@ class JadwalFilm extends StatelessWidget {
                           SizedBox(width: 45),
                           ElevatedButton(
                             onPressed: () {
-                              // Add action for the button, e.g., navigate or perform some operation
+                              
                             },
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(buttonWidth, buttonHeight),
@@ -426,7 +414,7 @@ class JadwalFilm extends StatelessWidget {
                               textAlign: TextAlign.left,
                             ),
                           ),
-                          Spacer(), // Add Spacer to push the next text to the right edge
+                          Spacer(),
                           Container(
                             margin: EdgeInsets.only(right: 20),
                             child: Text(
@@ -446,7 +434,7 @@ class JadwalFilm extends StatelessWidget {
                         children: [
                           ElevatedButton(
                             onPressed: () {
-                              // Add action for the button, e.g., navigate or perform some operation
+                              
                             },
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(buttonWidth, buttonHeight),
@@ -456,7 +444,7 @@ class JadwalFilm extends StatelessWidget {
                           ),
                           ElevatedButton(
                             onPressed: () {
-                              // Add action for the button, e.g., navigate or perform some operation
+                              
                             },
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(buttonWidth, buttonHeight),
@@ -466,7 +454,7 @@ class JadwalFilm extends StatelessWidget {
                           ),
                           ElevatedButton(
                             onPressed: () {
-                              // Add action for the button, e.g., navigate or perform some operation
+                              
                             },
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(buttonWidth, buttonHeight),
@@ -476,7 +464,7 @@ class JadwalFilm extends StatelessWidget {
                           ),
                           ElevatedButton(
                             onPressed: () {
-                              // Add action for the button, e.g., navigate or perform some operation
+                              
                             },
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(buttonWidth, buttonHeight),
@@ -494,7 +482,7 @@ class JadwalFilm extends StatelessWidget {
                         children: [
                           ElevatedButton(
                             onPressed: () {
-                              // Add action for the button, e.g., navigate or perform some operation
+                              
                             },
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(buttonWidth, buttonHeight),
@@ -505,7 +493,7 @@ class JadwalFilm extends StatelessWidget {
                           SizedBox(width: 45),
                           ElevatedButton(
                             onPressed: () {
-                              // Add action for the button, e.g., navigate or perform some operation
+                              
                             },
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(buttonWidth, buttonHeight),
@@ -515,17 +503,13 @@ class JadwalFilm extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(
-                        height: 15,
-                      ),
+                      SizedBox(height: 15,),
                       Container(
                         height: 2,
                         width: 550,
                         color: Colors.orange,
                       ),
-                      SizedBox(
-                        height: 15,
-                      ),
+                      SizedBox(height: 15,),
                       Row(
                         children: [
                           Container(
@@ -536,7 +520,7 @@ class JadwalFilm extends StatelessWidget {
                               textAlign: TextAlign.left,
                             ),
                           ),
-                          Spacer(), // Add Spacer to push the next text to the right edge
+                          Spacer(),
                           Container(
                             margin: EdgeInsets.only(right: 20),
                             child: Text(
@@ -547,14 +531,13 @@ class JadwalFilm extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 15,),
                       SizedBox(height: 20,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           ElevatedButton(
                             onPressed: () {
-                              // Add action for the button, e.g., navigate or perform some operation
+                              
                             },
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(buttonWidth, buttonHeight),
@@ -564,7 +547,7 @@ class JadwalFilm extends StatelessWidget {
                           ),
                           ElevatedButton(
                             onPressed: () {
-                              // Add action for the button, e.g., navigate or perform some operation
+                             
                             },
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(buttonWidth, buttonHeight),
