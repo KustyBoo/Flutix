@@ -6,6 +6,7 @@ class ShimmerContainer extends StatelessWidget {
   final String? variant;
   final Color? baseColor;
   final BorderRadius borderRadius;
+  final double? margin;
 
   const ShimmerContainer(
       {super.key,
@@ -13,7 +14,8 @@ class ShimmerContainer extends StatelessWidget {
       required this.height,
       this.borderRadius = BorderRadius.zero,
       this.baseColor = const Color(0xffEAEAEA),
-      this.variant = 'rectangle'});
+      this.variant = 'rectangle',
+      this.margin = 0});
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +23,7 @@ class ShimmerContainer extends StatelessWidget {
         baseColor: baseColor ?? const Color(0xffEAEAEA),
         highlightColor: Colors.white,
         child: Container(
+          margin: EdgeInsets.only(top: margin!),
           width: width,
           height: height,
           decoration: BoxDecoration(

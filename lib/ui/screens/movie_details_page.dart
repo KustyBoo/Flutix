@@ -11,7 +11,7 @@ class DetailMoviePage extends StatelessWidget {
     List<Credit>? credits = [];
 
     // Map arguments = ModalRoute.of(context)?.settings.arguments as Map;
-    int movieId = 120;
+    int movieId = 117;
 
     return Scaffold(
       body: Stack(
@@ -36,31 +36,49 @@ class DetailMoviePage extends StatelessWidget {
                               children: [
                                 //backdrop
                                 Container(
-                                    width: double.maxFinite,
-                                    height: 270,
-                                    decoration: BoxDecoration(
-                                        color: warnaApp.secondary,
-                                        image: DecorationImage(
-                                            image: NetworkImage(
-                                                'https://image.tmdb.org/t/p/w1280/${movieDetail?.backdropPath ?? movieDetail?.posterPath}'),
-                                            fit: BoxFit.cover))),
+                                  margin: EdgeInsets.only(top: 70),
+                                  width: double.maxFinite,
+                                  height: 270,
+                                  decoration: BoxDecoration(
+                                    color: warnaApp.secondary,
+                                    image: DecorationImage(
+                                        image: NetworkImage(
+                                            'https://image.tmdb.org/t/p/w1280/${movieDetail?.backdropPath ?? movieDetail?.posterPath}'),
+                                        fit: BoxFit.cover),
+                                  ),
+                                ),
                                 //Icon Back button
                                 Container(
-                                  margin:
-                                      const EdgeInsets.only(left: 24, top: 16),
-                                  decoration: BoxDecoration(
-                                    color: warnaApp.primary,
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: const Icon(
-                                      Icons.arrow_back,
-                                      color: Colors.white,
-                                      size: 24,
-                                    ),
+                                  alignment: Alignment.centerLeft,
+                                  width: MediaQuery.of(context).size.width,
+                                  padding: EdgeInsets.all(15),
+                                  color: warnaApp.primary,
+                                  height: 70,
+                                  //container icon
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        child: IconButton(
+                                          padding: EdgeInsets.all(0),
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          icon: Icon(
+                                            Icons.arrow_back_ios,
+                                            size: 32,
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(left: 5),
+                                        child: Text(
+                                          "Details",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .displayLarge,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                                 Positioned.fill(
@@ -69,22 +87,21 @@ class DetailMoviePage extends StatelessWidget {
                                     alignment: Alignment.bottomCenter,
                                     child: Container(
                                       decoration: BoxDecoration(
-                                        color: warnaApp.primary,
-                                        boxShadow: [BoxShadow(color: Colors.grey, spreadRadius: 0.1, blurRadius:5,),]
-                                      ),
+                                          color: warnaApp.primary,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Colors.grey,
+                                              spreadRadius: 0.1,
+                                              blurRadius: 5,
+                                            ),
+                                          ]),
                                       width: 260,
-                                      child: Expanded(
-                                        child: Padding(
+                                      child: Padding(
                                           padding: const EdgeInsets.all(15.0),
-                                          child: 
-                                              Text(
-                                                  movieDetail!.title,
-                                                  textAlign: TextAlign.center,
-                                                  style: TextStyle(fontSize: 24)
-                                                )
-                                              
-                                        ),
-                                      ),
+                                          child: Text(movieDetail!.title,
+                                              textAlign: TextAlign.center,
+                                              style:
+                                                  TextStyle(fontSize: 24))),
                                     ),
                                   ),
                                 )
@@ -94,8 +111,42 @@ class DetailMoviePage extends StatelessWidget {
                               clipBehavior: Clip.none,
                               children: [
                                 const ShimmerContainer(
+                                  margin: 70,
                                   height: 270,
                                   width: double.maxFinite,
+                                ),
+                                Container(
+                                  alignment: Alignment.centerLeft,
+                                  width: MediaQuery.of(context).size.width,
+                                  padding: EdgeInsets.all(15),
+                                  color: warnaApp.primary,
+                                  height: 70,
+                                  //container icon
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        child: IconButton(
+                                          padding: EdgeInsets.all(0),
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          icon: Icon(
+                                            Icons.arrow_back_ios,
+                                            size: 32,
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(left: 5),
+                                        child: Text(
+                                          "Details",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .displayLarge,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                                 Positioned.fill(
                                   bottom: -30,
@@ -103,17 +154,20 @@ class DetailMoviePage extends StatelessWidget {
                                     alignment: Alignment.bottomCenter,
                                     child: Container(
                                       decoration: BoxDecoration(
-                                        color: warnaApp.primary,
-                                        boxShadow: [BoxShadow(color: Colors.grey, spreadRadius: 0.1, blurRadius:5,),]
-                                      ),
+                                          color: warnaApp.primary,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Colors.grey,
+                                              spreadRadius: 0.1,
+                                              blurRadius: 5,
+                                            ),
+                                          ]),
                                       width: 250,
-                                      child: Expanded(
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(15.0),
-                                          child: ShimmerContainer(
-                                            height: 30,
-                                            width: 200,
-                                          ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(15.0),
+                                        child: ShimmerContainer(
+                                          height: 30,
+                                          width: 200,
                                         ),
                                       ),
                                     ),
@@ -132,14 +186,11 @@ class DetailMoviePage extends StatelessWidget {
                           )
                         : const TitleMovieSkeleton(),
                   ),
-                  Divider(
-                    color: warnaApp.primaryContainer,
-                    thickness: 2
-                  ),
+                  Divider(color: warnaApp.primaryContainer, thickness: 2),
 
                   Container(
-                    margin:
-                        const EdgeInsets.symmetric(horizontal: defaultMargin, vertical: 10),
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: defaultMargin, vertical: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -167,10 +218,7 @@ class DetailMoviePage extends StatelessWidget {
                     ),
                   ),
 
-                  Divider(
-                    color: warnaApp.primaryContainer,
-                    thickness: 2
-                  ),
+                  Divider(color: warnaApp.primaryContainer, thickness: 2),
                   //Credits Section
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: defaultMargin),
@@ -196,7 +244,7 @@ class DetailMoviePage extends StatelessWidget {
                                 height: 12.0,
                               ),
                               Container(
-                                height: 175,
+                                height: 185,
                                 child: hasLoadedCredits
                                     ? ListView.builder(
                                         scrollDirection: Axis.horizontal,
@@ -239,7 +287,7 @@ class DetailMoviePage extends StatelessWidget {
                         }),
                   ),
                   //Storyline Section
-                  
+
                   Container(
                     height: 46.0,
                     child: ElevatedButton(
@@ -252,10 +300,9 @@ class DetailMoviePage extends StatelessWidget {
                       child: Text(
                         "Continue to Book",
                         style: TextStyle(
-                          color: warnaApp.primary,
-                          fontFamily: "raleway",
-                          fontSize: 16
-                        ),
+                            color: warnaApp.primary,
+                            fontFamily: "raleway",
+                            fontSize: 16),
                       ),
                     ),
                   ),

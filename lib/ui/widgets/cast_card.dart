@@ -14,11 +14,8 @@ class CastCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 175,
-      width: 110,
       margin: margin,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
@@ -33,6 +30,9 @@ class CastCard extends StatelessWidget {
                         : const AssetImage('assets/user_pic.png')
                             as ImageProvider,
                     fit: profilePath != null ? BoxFit.cover : BoxFit.contain)),
+          ),
+          SizedBox(
+            height: 10,
           ),
           Text(
             name,
@@ -52,7 +52,7 @@ class CastCardSkeleton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 175,
+      height: 180,
       width: 110,
       margin: margin,
       child: Column(
@@ -61,7 +61,9 @@ class CastCardSkeleton extends StatelessWidget {
           ShimmerContainer(
             height: 150,
             width: 110,
-            borderRadius: BorderRadius.circular(8.0),
+          ),
+          SizedBox(
+            height: 10,
           ),
           const ShimmerContainer(height: 24.0)
         ],
