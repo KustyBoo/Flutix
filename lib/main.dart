@@ -6,7 +6,6 @@ import 'package:firebase_core/firebase_core.dart';
 
 import 'ui/widgets/widgets.dart';
 import 'ui/screens/screens.dart';
-import 'ui/models/models.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

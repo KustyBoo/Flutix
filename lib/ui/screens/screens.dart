@@ -1,10 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:dotted_line/dotted_line.dart';
-import 'package:shimmer/shimmer.dart';
+
 import '../widgets/widgets.dart';
 import '../models/models.dart';
 import '../services/services.dart';
