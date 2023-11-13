@@ -10,8 +10,8 @@ class DetailMoviePage extends StatelessWidget {
     MovieDetail? movieDetail;
     List<Credit>? credits = [];
 
-    Map arguments = ModalRoute.of(context)?.settings.arguments as Map;
-    int movieId = arguments['id'];
+    // Map arguments = ModalRoute.of(context)?.settings.arguments as Map;
+    // int movieId = arguments['id'];
 
     return Scaffold(
       body: Stack(
@@ -24,7 +24,7 @@ class DetailMoviePage extends StatelessWidget {
             color: Colors.white,
           )),
           FutureBuilder(
-            future: MovieService.getDetailMovie(movieId: movieId),
+            future: MovieService.getDetailMovie(movieId: 150),
             builder: (_, snapshot) {
               bool hasLoadedDetail =
                   snapshot.connectionState == ConnectionState.done &&
@@ -104,7 +104,7 @@ class DetailMoviePage extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: defaultMargin),
                     child: FutureBuilder(
-                        future: MovieService.getCreditMovie(movieId: movieId),
+                        future: MovieService.getCreditMovie(movieId: 150),
                         builder: (_, snapshot2) {
                           bool hasLoadedCredits = snapshot2.connectionState ==
                                   ConnectionState.done &&

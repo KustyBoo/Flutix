@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:flutix/firebase_options.dart';
 import 'package:flutix/ui/models/models.dart';
 import 'package:flutix/ui/screens/login_page.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,9 @@ import 'ui/screens/screens.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
 
   runApp(const MyApp());
 }
