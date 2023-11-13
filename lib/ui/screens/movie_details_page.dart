@@ -11,20 +11,13 @@ class DetailMoviePage extends StatelessWidget {
     List<Credit>? credits = [];
 
     // Map arguments = ModalRoute.of(context)?.settings.arguments as Map;
-    // int movieId = arguments['id'];
+    int movieId = 120;
 
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            color: warnaApp.primary,
-          ),
-          SafeArea(
-              child: Container(
-            color: Colors.white,
-          )),
           FutureBuilder(
-            future: MovieService.getDetailMovie(movieId: 150),
+            future: MovieService.getDetailMovie(movieId: movieId),
             builder: (_, snapshot) {
               bool hasLoadedDetail =
                   snapshot.connectionState == ConnectionState.done &&
@@ -39,6 +32,7 @@ class DetailMoviePage extends StatelessWidget {
                     children: [
                       hasLoadedDetail
                           ? Stack(
+                              clipBehavior: Clip.none,
                               children: [
                                 //backdrop
                                 Container(
@@ -50,24 +44,11 @@ class DetailMoviePage extends StatelessWidget {
                                             image: NetworkImage(
                                                 'https://image.tmdb.org/t/p/w1280/${movieDetail?.backdropPath ?? movieDetail?.posterPath}'),
                                             fit: BoxFit.cover))),
-                                //Gradient
-                                Container(
-                                  width: double.maxFinite,
-                                  height: 271,
-                                  decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                          colors: [
-                                        Colors.white,
-                                        Colors.white.withOpacity(0.0),
-                                      ],
-                                          begin: Alignment(0, 1),
-                                          end: Alignment(0, 0.1))),
-                                ),
                                 //Icon Back button
                                 Container(
                                   margin:
                                       const EdgeInsets.only(left: 24, top: 16),
-                                  decoration:  BoxDecoration(
+                                  decoration: BoxDecoration(
                                     color: warnaApp.primary,
                                     shape: BoxShape.circle,
                                   ),
@@ -82,29 +63,119 @@ class DetailMoviePage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                                Positioned.fill(
+                                  bottom: -30,
+                                  child: Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: warnaApp.primary,
+                                        boxShadow: [BoxShadow(color: Colors.grey, spreadRadius: 0.1, blurRadius:5,),]
+                                      ),
+                                      width: 260,
+                                      child: Expanded(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(15.0),
+                                          child: 
+                                              Text(
+                                                  movieDetail!.title,
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(fontSize: 24)
+                                                )
+                                              
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                )
                               ],
                             )
-                          : const ShimmerContainer(
-                              height: 270,
-                              width: double.maxFinite,
-                            ),
+                          : Stack(
+                              clipBehavior: Clip.none,
+                              children: [
+                                const ShimmerContainer(
+                                  height: 270,
+                                  width: double.maxFinite,
+                                ),
+                                Positioned.fill(
+                                  bottom: -30,
+                                  child: Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: warnaApp.primary,
+                                        boxShadow: [BoxShadow(color: Colors.grey, spreadRadius: 0.1, blurRadius:5,),]
+                                      ),
+                                      width: 250,
+                                      child: Expanded(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(15.0),
+                                          child: ShimmerContainer(
+                                            height: 30,
+                                            width: 200,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            )
                     ],
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 16),
+                    margin: const EdgeInsets.only(top: 50, bottom: 10),
                     child: hasLoadedDetail
                         ? TitleMovie(
-                            title: movieDetail!.title,
                             genreAndLanguage: movieDetail!.genresAndLanguage,
                             rate: movieDetail!.voteAverage,
                           )
                         : const TitleMovieSkeleton(),
                   ),
+                  Divider(
+                    color: warnaApp.primaryContainer,
+                    thickness: 2
+                  ),
+
+                  Container(
+                    margin:
+                        const EdgeInsets.symmetric(horizontal: defaultMargin, vertical: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        titleSection('Description'),
+                        const SizedBox(
+                          height: 8.0,
+                        ),
+                        hasLoadedDetail
+                            ? Text(
+                                movieDetail!.overview,
+                                style: teksApp.bodyMedium!.copyWith(
+                                  fontSize: 14,
+                                ),
+                              )
+                            : const Column(
+                                children: [
+                                  ShimmerContainer(height: 60.0),
+                                  SizedBox(
+                                    height: 8.0,
+                                  ),
+                                  ShimmerContainer(height: 60.0),
+                                ],
+                              ),
+                      ],
+                    ),
+                  ),
+
+                  Divider(
+                    color: warnaApp.primaryContainer,
+                    thickness: 2
+                  ),
                   //Credits Section
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: defaultMargin),
                     child: FutureBuilder(
-                        future: MovieService.getCreditMovie(movieId: 150),
+                        future: MovieService.getCreditMovie(movieId: movieId),
                         builder: (_, snapshot2) {
                           bool hasLoadedCredits = snapshot2.connectionState ==
                                   ConnectionState.done &&
@@ -119,13 +190,13 @@ class DetailMoviePage extends StatelessWidget {
                               Container(
                                 margin: const EdgeInsets.symmetric(
                                     horizontal: defaultMargin),
-                                child: titleSection('Cast & Crew'),
+                                child: titleSection('Cast'),
                               ),
                               const SizedBox(
                                 height: 12.0,
                               ),
                               Container(
-                                height: 116,
+                                height: 175,
                                 child: hasLoadedCredits
                                     ? ListView.builder(
                                         scrollDirection: Axis.horizontal,
@@ -168,49 +239,23 @@ class DetailMoviePage extends StatelessWidget {
                         }),
                   ),
                   //Storyline Section
+                  
                   Container(
-                    margin:
-                        const EdgeInsets.symmetric(horizontal: defaultMargin),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        titleSection('Storyline'),
-                        const SizedBox(
-                          height: 8.0,
-                        ),
-                        hasLoadedDetail
-                            ? Text(
-                                movieDetail!.overview,
-                                style: greyTextFont.copyWith(
-                                  fontSize: 14,
-                                ),
-                              )
-                            : const Column(
-                                children: [
-                                  ShimmerContainer(height: 60.0),
-                                  SizedBox(
-                                    height: 8.0,
-                                  ),
-                                  ShimmerContainer(height: 60.0),
-                                ],
-                              ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(
-                        horizontal: 50.0, vertical: 40.0),
                     height: 46.0,
                     child: ElevatedButton(
-                      style:
-                          ElevatedButton.styleFrom(backgroundColor: mainColor),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: warnaApp.secondary),
                       onPressed: () {
                         Navigator.pushNamed(context, '/ordering',
                             arguments: {'movieDetail': movieDetail});
                       },
                       child: Text(
                         "Continue to Book",
-                        style: whiteTextFont.copyWith(fontSize: 16),
+                        style: TextStyle(
+                          color: warnaApp.primary,
+                          fontFamily: "raleway",
+                          fontSize: 16
+                        ),
                       ),
                     ),
                   ),
@@ -226,7 +271,8 @@ class DetailMoviePage extends StatelessWidget {
   Widget titleSection(title) {
     return Text(
       title,
-      style: blackTextFont.copyWith(fontSize: 14, fontWeight: FontWeight.w600),
+      style: teksApp.bodyMedium!
+          .copyWith(fontSize: 20, fontWeight: FontWeight.w600),
     );
   }
 }
@@ -240,11 +286,11 @@ class ShimmerContainer extends StatelessWidget {
 
   const ShimmerContainer(
       {super.key,
-        this.width = double.infinity,
-        required this.height,
-        this.borderRadius = BorderRadius.zero,
-        this.baseColor =  const Color(0xffEAEAEA),
-        this.variant = 'rectangle'});
+      this.width = double.infinity,
+      required this.height,
+      this.borderRadius = BorderRadius.zero,
+      this.baseColor = const Color(0xffEAEAEA),
+      this.variant = 'rectangle'});
 
   @override
   Widget build(BuildContext context) {
@@ -255,49 +301,16 @@ class ShimmerContainer extends StatelessWidget {
           width: width,
           height: height,
           decoration: BoxDecoration(
-            color:baseColor,
-            shape: variant == 'circle' ? BoxShape.circle : BoxShape.rectangle,
-            borderRadius: variant == 'circle'  ? null : borderRadius
-          ),
+              color: baseColor,
+              shape: variant == 'circle' ? BoxShape.circle : BoxShape.rectangle,
+              borderRadius: variant == 'circle' ? null : borderRadius),
         ));
   }
 }
 
 const double defaultMargin = 24;
 
-const Color mainColor = Color(0xFF503E9D);
-const Color mainLightColor = Color(0xFFEBEFF6);
-const Color accentColor = Color(0xFF2C1F63);
-const Color yellowColor = Color(0xFFFBD460);
-const Color greyColor = Color(0xFFADADAD);
-const Color grey2Color = Color(0xFFBEBEBE);
-const Color whiteColor = Color(0xFFFFFFFF);
-const Color dangerColor = Color(0xFFFF5C83);
-const Color successColor = Color(0xFF3E9D9D);
-
-TextStyle blackTextFont = GoogleFonts.raleway()
-    .copyWith(color: Colors.black, fontWeight: FontWeight.w500);
-TextStyle whiteTextFont = GoogleFonts.raleway()
-    .copyWith(color: Colors.white, fontWeight: FontWeight.w500);
-TextStyle mainTextFont = GoogleFonts.raleway()
-    .copyWith(color: mainColor, fontWeight: FontWeight.w500);
-TextStyle greyTextFont = GoogleFonts.raleway()
-    .copyWith(color: greyColor, fontWeight: FontWeight.w500);
-TextStyle yellowTextFont = GoogleFonts.raleway()
-    .copyWith(color: yellowColor, fontWeight: FontWeight.w500);
-TextStyle dangerTextFont = GoogleFonts.raleway()
-    .copyWith(color: dangerColor, fontWeight: FontWeight.w500);
-
-TextStyle whiteNumberFont =
-    GoogleFonts.openSans().copyWith(color: Colors.white);
-TextStyle blackNumberFont =
-    GoogleFonts.openSans().copyWith(color: Colors.black);
-TextStyle greyNumberFont = GoogleFonts.openSans().copyWith(color: greyColor);
-TextStyle yellowNumberFont =
-    GoogleFonts.openSans().copyWith(color: yellowColor);
-
 class TitleMovie extends StatelessWidget {
-  final String title;
   final double rate;
 
   final String? mainAxisAlignment;
@@ -305,7 +318,6 @@ class TitleMovie extends StatelessWidget {
 
   const TitleMovie(
       {super.key,
-      required this.title,
       required this.genreAndLanguage,
       required this.rate,
       this.mainAxisAlignment});
@@ -322,22 +334,14 @@ class TitleMovie extends StatelessWidget {
               ? MainAxisAlignment.start
               : MainAxisAlignment.center,
       children: [
-        SizedBox(
-          width: MediaQuery.of(context).size.width - (2 * defaultMargin) - 90,
-          child: Text(
-            title,
-            style: blackTextFont.copyWith(
-                fontSize:
-                    mainAxisAlignment != null && mainAxisAlignment == 'start'
-                        ? 16
-                        : 20,
-                fontWeight: FontWeight.w600),
-            maxLines: 3,
-            overflow: TextOverflow.clip,
-            textAlign: mainAxisAlignment != null && mainAxisAlignment == 'start'
-                ? TextAlign.left
-                : TextAlign.center,
-          ),
+        RatingStarts(
+          averageRate: rate,
+          textStyle: teksApp.bodyMedium!
+              .copyWith(fontSize: 16, fontWeight: FontWeight.w300),
+          mainAxisAlignment:
+              mainAxisAlignment != null && mainAxisAlignment == 'start'
+                  ? MainAxisAlignment.start
+                  : MainAxisAlignment.center,
         ),
         const SizedBox(
           height: 6.0,
@@ -348,8 +352,8 @@ class TitleMovie extends StatelessWidget {
               : double.infinity,
           child: Text(
             genreAndLanguage,
-            style: greyTextFont.copyWith(
-              fontSize: 12,
+            style: teksApp.bodyMedium!.copyWith(
+              fontSize: 16,
               overflow: TextOverflow.clip,
             ),
             maxLines: 3,
@@ -357,18 +361,6 @@ class TitleMovie extends StatelessWidget {
                 ? TextAlign.left
                 : TextAlign.center,
           ),
-        ),
-        const SizedBox(
-          height: 6.0,
-        ),
-        RatingStarts(
-          averageRate: rate,
-          textStyle: greyNumberFont.copyWith(
-              fontSize: 12, fontWeight: FontWeight.w300),
-          mainAxisAlignment:
-              mainAxisAlignment != null && mainAxisAlignment == 'start'
-                  ? MainAxisAlignment.start
-                  : MainAxisAlignment.center,
         ),
       ],
     );
@@ -388,8 +380,8 @@ class TitleMovieSkeleton extends StatelessWidget {
               : MainAxisAlignment.center,
       children: const [
         ShimmerContainer(
-          height: 21,
-          width: 190,
+          height: 20,
+          width: 128,
         ),
         SizedBox(
           height: 6.0,
@@ -397,13 +389,6 @@ class TitleMovieSkeleton extends StatelessWidget {
         ShimmerContainer(
           height: 14,
           width: 90,
-        ),
-        SizedBox(
-          height: 6.0,
-        ),
-        ShimmerContainer(
-          height: 20,
-          width: 128,
         ),
       ],
     );
@@ -414,18 +399,18 @@ class RatingStarts extends StatelessWidget {
   final double averageRate;
   final double iconSize;
   final double fontSize;
-  final Color starColor;
+  final Color? starColor = warnaApp.secondary;
   final TextStyle? textStyle;
   final MainAxisAlignment? mainAxisAlignment;
 
-  const RatingStarts(
-      {super.key,
-      required this.averageRate,
-      this.iconSize = 20.0,
-      this.fontSize = 12.0,
-      this.textStyle,
-      this.mainAxisAlignment,
-      this.starColor = yellowColor});
+  RatingStarts({
+    super.key,
+    required this.averageRate,
+    this.iconSize = 30.0,
+    this.fontSize = 22.0,
+    this.textStyle,
+    this.mainAxisAlignment,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -436,16 +421,10 @@ class RatingStarts extends StatelessWidget {
         (index) => Icon(
               Icons.star,
               size: iconSize,
-              color: n > index ? starColor : grey2Color,
+              color: n > index ? starColor : warnaApp.surface,
             ));
     starsWidget.add(const SizedBox(
       width: 3,
-    ));
-    starsWidget.add(Text(
-      '${averageRate.round()}/10',
-      style: textStyle ??
-          whiteNumberFont.copyWith(
-              fontSize: fontSize, fontWeight: FontWeight.w300),
     ));
 
     return Row(
@@ -468,29 +447,29 @@ class CastCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 116,
-      width: 70,
+      height: 175,
+      width: 110,
       margin: margin,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: 70,
-            height: 80,
+            width: 110,
+            height: 150,
             decoration: BoxDecoration(
-                color: profilePath != null ? greyColor : Colors.white,
-                borderRadius: BorderRadius.circular(8.0),
+                color: profilePath != null ? warnaApp.primary : Colors.white,
                 image: DecorationImage(
                     image: profilePath != null
-                        ? NetworkImage('https://image.tmdb.org/t/p//w185/$profilePath')
+                        ? NetworkImage(
+                            'https://image.tmdb.org/t/p//w185/$profilePath')
                         : const AssetImage('assets/user_pic.png')
                             as ImageProvider,
                     fit: profilePath != null ? BoxFit.cover : BoxFit.contain)),
           ),
           Text(
             name,
-            textAlign: TextAlign.center,
-            style: blackTextFont.copyWith(fontSize: 10),
+            style: teksApp.bodyMedium!.copyWith(fontSize: 14),
           )
         ],
       ),
@@ -506,15 +485,15 @@ class CastCardSkeleton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 116,
-      width: 70,
+      height: 175,
+      width: 110,
       margin: margin,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ShimmerContainer(
-            height: 80.0,
-            width: 70.0,
+            height: 150,
+            width: 110,
             borderRadius: BorderRadius.circular(8.0),
           ),
           const ShimmerContainer(height: 24.0)

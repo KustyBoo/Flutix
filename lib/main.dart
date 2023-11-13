@@ -1,13 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutix/firebase_options.dart';
-import 'package:flutix/ui/models/models.dart';
-import 'package:flutix/ui/screens/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutix/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'ui/widgets/widgets.dart';
 import 'ui/screens/screens.dart';
+import 'ui/models/models.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -20,3 +20,4 @@ part 'user_profiling_2.dart';
 part 'wallet.dart';
 part 'wallet_top_up.dart';
 part 'movie_details_page.dart';
+part 'login_page.dart';
