@@ -1,4 +1,3 @@
-import 'package:flutix/ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
