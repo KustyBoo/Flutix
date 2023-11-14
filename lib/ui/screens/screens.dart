@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:dotted_line/dotted_line.dart';
+import 'package:provider/provider.dart';
 
 import '../widgets/widgets.dart';
-import '../models/models.dart';
-import '../services/services.dart';
+import '../../models/models.dart';
+import '../../services/services.dart';
+import '../../provider/provider.dart';
 
 part 'sign_up_1.dart';
 part 'sign_up_2.dart';
@@ -18,3 +20,4 @@ part 'wallet.dart';
 part 'wallet_top_up.dart';
 part 'movie_details_page.dart';
 part 'login_page.dart';
+part 'home_page.dart';

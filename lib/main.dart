@@ -3,9 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutix/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 
 import 'ui/widgets/widgets.dart';
 import 'ui/screens/screens.dart';
+import 'provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,28 +23,34 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      builder: (context, child) {
-        return ScrollConfiguration(
-          behavior: ScrBehaviour(),
-          child: child!,
-        );
-      },
-      routes: {
-        "/successCheckout": (context) => SuccessCheckout(),
-        "/wallet": (context) => Wallet(),
-        "/walletTopUp": (context) => WalletTopup(),
-        "/userProfiling1": (context) => UserProfiling1(),
-        "/userProfiling2": (context) => UserProfiling2(),
-        "/home": (context) => BottomNavScreen(),
-        "/tes": (context) => JadwalFilm(), // buat tes halaman
-        "/signup":(context)=> SignUp1(),
-        "/movieDetail": (context) => DetailMoviePage(),
-        "/login":(context) => LoginPage(),
-      },
-      theme: temaApp,
-      initialRoute: "/movieDetail",
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => MovieProvider())
+      ],
+
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        builder: (context, child) {
+          return ScrollConfiguration(
+            behavior: ScrBehaviour(),
+            child: child!,
+          );
+        },
+        routes: {
+          "/successCheckout": (context) => SuccessCheckout(),
+          "/wallet": (context) => Wallet(),
+          "/walletTopUp": (context) => WalletTopup(),
+          "/userProfiling1": (context) => UserProfiling1(),
+          "/userProfiling2": (context) => UserProfiling2(),
+          "/home": (context) => BottomNavScreen(),
+          "/tes": (context) => JadwalFilm(), // buat tes halaman
+          "/signup":(context)=> SignUp1(),
+          "/movieDetail": (context) => DetailMoviePage(),
+          "/login":(context) => LoginPage(),
+        },
+        theme: temaApp,
+        initialRoute: "/home",
+      ),
     );
   }
 }

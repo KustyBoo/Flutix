@@ -36,20 +36,23 @@ class TitleMovie extends StatelessWidget {
         const SizedBox(
           height: 6.0,
         ),
-        Container(
-          width: mainAxisAlignment == 'start'
-              ? MediaQuery.of(context).size.width - (2 * defaultMargin) - 90
-              : double.infinity,
-          child: Text(
-            genreAndLanguage,
-            style: teksApp.bodyMedium!.copyWith(
-              fontSize: 16,
-              overflow: TextOverflow.clip,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Container(
+            width: mainAxisAlignment == 'start'
+                ? MediaQuery.of(context).size.width - (2 * defaultMargin) - 90
+                : double.infinity,
+            child: Text(
+              genreAndLanguage,
+              style: teksApp.bodyMedium!.copyWith(
+                fontSize: 16,
+                overflow: TextOverflow.clip,
+              ),
+              maxLines: 3,
+              textAlign: mainAxisAlignment == 'start'
+                  ? TextAlign.left
+                  : TextAlign.center,
             ),
-            maxLines: 3,
-            textAlign: mainAxisAlignment == 'start'
-                ? TextAlign.left
-                : TextAlign.center,
           ),
         ),
       ],

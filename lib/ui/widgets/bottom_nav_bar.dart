@@ -13,7 +13,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   int currentIndex = 0;
 
   List<Widget> screen = [
-    Center(child: Text("home")),
+    HomeScreen(),
     Center(child: Text("movie")),
     Center(child: Text("tiket")),
     Center(child: Text("teater")),
