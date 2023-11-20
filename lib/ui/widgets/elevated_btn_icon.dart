@@ -3,56 +3,50 @@
 part of 'widgets.dart';
 
 class ElevatedBtnIcon extends StatelessWidget {
-  ElevatedBtnIcon(
-      {super.key,
-      required this.iconCustom,
-      required this.teksCustom,
-      required this.btnClicked,
-      required this.lebarBtn,
-      required this.tinggiBtn,
-      this.fungsiCustom});
-
-  final IconData iconCustom;
-  final String teksCustom;
-  final Function()? fungsiCustom;
-
-  double lebarBtn;
-  double tinggiBtn;
-
-  bool btnClicked;
-
-  Color warnaBackground = warnaApp.primary;
-  Color warnaForeground = warnaApp.secondary;
+  ElevatedBtnIcon({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton.icon(
-      icon: Icon(iconCustom),
-      onPressed: fungsiCustom,
-      label: Text(teksCustom),
-      style: ElevatedButton.styleFrom(
-        backgroundColor: btnClicked == false
-            ? warnaBackground
-            : warnaForeground,
-        foregroundColor: btnClicked == false
-            ? warnaForeground
-            : warnaBackground,
-        padding: EdgeInsets.fromLTRB(8, 10, 8, 10),
-        elevation: 0,
-        side: BorderSide(
-          width: 1,
-          color: warnaApp.secondary,
-        ),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(4),
-        ),
-        textStyle: TextStyle(
-          fontSize: 16,
-          fontFamily: "Raleway",
-          fontWeight: FontWeight.w700,
-        ),
-        minimumSize: Size(lebarBtn, tinggiBtn),
-      ),
+    return Consumer<KategoriProvider>(
+      builder: (BuildContext context, kategori, child) {
+        return Wrap(
+            crossAxisAlignment: WrapCrossAlignment.start,
+            spacing: 8,
+            runSpacing: 10,
+            children: List.generate(kategori.kategoriData.length, (index) {
+              var item = kategori.kategoriData[index];
+              return ElevatedButton.icon(
+                icon: Icon(item.icon),
+                onPressed: () {
+                  kategori.updateBtn(index);
+                },
+                label: Text(item.nama),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: item.bgColor,
+                  foregroundColor: item.foreColor,
+                  padding: EdgeInsets.fromLTRB(8, 10, 8, 10),
+                  elevation: 0,
+                  side: BorderSide(
+                    width: 1,
+                    color: item.foreColor,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  textStyle: TextStyle(
+                    fontSize: 16,
+                    fontFamily: "Raleway",
+                    fontWeight: FontWeight.w700,
+                    color: item.foreColor,
+                  ),
+                  minimumSize: Size(
+                    item.btnWidth,
+                    item.btnHeight,
+                  ),
+                ),
+              );
+            },),);
+      },
     );
   }
 }
