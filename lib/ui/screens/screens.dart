@@ -21,3 +21,6 @@ part 'wallet_top_up.dart';
 part 'movie_details_page.dart';
 part 'login_page.dart';
 part 'home_page.dart';
+part 'tempat_page.dart';
+
+const double defaultMargin = 24;

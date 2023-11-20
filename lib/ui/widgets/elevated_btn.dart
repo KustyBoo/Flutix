@@ -6,13 +6,13 @@ class ElevatedBtn extends StatelessWidget {
   ElevatedBtn(
       {super.key,
       required this.teksCustom,
-      required this.btnClicked,
+      this.btnClicked,
       this.fungsiCustom});
 
   final String teksCustom;
   final Function()? fungsiCustom;
 
-  bool btnClicked;
+  bool? btnClicked;
 
   Color warnaBackground = warnaApp.primary;
   Color warnaForeground = warnaApp.secondary;

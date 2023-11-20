@@ -339,4 +339,3 @@ class DetailMoviePage extends StatelessWidget {
   }
 }
 
-const double defaultMargin = 24;

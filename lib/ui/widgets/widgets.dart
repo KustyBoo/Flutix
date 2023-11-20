@@ -13,3 +13,4 @@ part 'movie_title.dart';
 part 'cast_card.dart';
 part 'shimmer_container.dart';
 part 'rating_star.dart';
+part 'select_seat.dart';
