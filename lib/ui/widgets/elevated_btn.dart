@@ -43,7 +43,7 @@ class ElevatedBtn extends StatelessWidget {
           borderRadius: BorderRadius.circular(4),
         ),
         textStyle: TextStyle(
-          fontSize: 16,
+          fontSize: 18,
           fontFamily: "Raleway",
           fontWeight: FontWeight.w700,
         ),

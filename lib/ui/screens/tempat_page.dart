@@ -30,15 +30,41 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
-        height: MediaQuery.of(context).size.height,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              children: [
-                Material(
-                  color: Colors.transparent,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            children: [
+              Material(
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 48,
+                      height: 70,
+                      child: IconButton(
+                        padding: EdgeInsets.all(0),
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.arrow_back_ios,
+                          size: 32,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 5),
+                      child: Text(
+                        "Big Mall XXI",
+                        style: Theme.of(context).textTheme.displayLarge,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height:20),
+              Material(
+                color: Colors.transparent,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -48,23 +74,49 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                     ],
                   ),
                 ),
-                Divider(
+              ),
+              Divider(
+                height: 50,
+                thickness: 3,
+                color: warnaApp.secondary,
+              ),
+              SizedBox(height:20),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                child: generateSeats(),
+              ),
+            ],
+          ),
+          Column(
+            children: [
+              Material(
+                child: Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: warnaApp.surface, width: 3)),
                   height: 50,
-                  thickness: 3,
-                  color: warnaApp.secondary,
+                  width: MediaQuery.of(context).size.width,
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      'Screen',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: warnaApp.secondary,
+                      ),
+                    ),
+                  ),
                 ),
-                generateSeats(),
-              ],
-            ),
-            const SizedBox(
-              height: 30.0,
-            ),
-            ElevatedBtn(
-              fungsiCustom: () {},
-              teksCustom: "Check-Out",
-            )
-          ],
-        ),
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                child: ElevatedBtn(
+                  fungsiCustom: () {},
+                  teksCustom: "Check-Out",
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -82,8 +134,8 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
             children: List.generate(
                 numberofSeats[i],
                 (j) => (SelectableBox(
-                      height: 60.0,
-                      width: 55.0,
+                      height: 50.0,
+                      width: 50.0,
                       margin: EdgeInsets.only(
                           right: j + 1 == 3
                               ? 50
