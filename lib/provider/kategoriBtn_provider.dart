@@ -1,7 +1,6 @@
 // ignore_for_file: file_names, prefer_const_constructors
 
-import 'package:flutix/ui/widgets/widgets.dart';
-import 'package:flutter/material.dart';
+part of 'provider.dart';
 
 class Kategori {
   int id;
@@ -149,7 +148,6 @@ class KategoriProvider extends ChangeNotifier {
       kategoriData[index].foreColor = warnaApp.secondary;
       kategoriClicked.removeLast();
     }
-    print(kategoriClicked);
     notifyListeners();
   }
 }

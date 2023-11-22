@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutix/provider/kategoriBtn_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutix/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -27,7 +26,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => MovieProvider()),
-        ChangeNotifierProvider(create: (context) => KategoriProvider())
+        ChangeNotifierProvider(create: (context) => KategoriProvider()),
+        ChangeNotifierProvider(create: (context) => TopUpProvider()),
       ],
 
       child: MaterialApp(
@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
           "/tempat":(context) => SelectSeatPage(),
         },
         theme: temaApp,
-        initialRoute: "/tempat",
+        initialRoute: "/walletTopUp",
       ),
     );
   }

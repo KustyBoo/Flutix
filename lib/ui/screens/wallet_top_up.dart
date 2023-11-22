@@ -2,24 +2,8 @@
 
 part of 'screens.dart';
 
-class WalletTopup extends StatefulWidget {
-  const WalletTopup({super.key});
-
-  @override
-  State<WalletTopup> createState() => _WalletTopupState();
-}
-
-class _WalletTopupState extends State<WalletTopup> {
-  bool btnClicked1 = false;
-  bool btnClicked2 = false;
-  bool btnClicked3 = false;
-  bool btnClicked4 = false;
-  bool btnClicked5 = false;
-  bool btnClicked6 = false;
-  bool btnClicked7 = false;
-  bool btnClicked8 = false;
-  bool btnClicked9 = false;
-  bool btnClicked10 = false;
+class WalletTopup extends StatelessWidget {
+  WalletTopup({super.key});
 
   final TextEditingController _controllerTeks = TextEditingController();
 
@@ -86,13 +70,17 @@ class _WalletTopupState extends State<WalletTopup> {
                             SizedBox(
                               height: 14,
                             ),
-                            Container(
-                              width: MediaQuery.of(context).size.width,
-                              height: 50,
-                              child: TextFLD(
-                                teksHint: "IDR",
-                                teks: _controllerTeks,
-                              ),
+                            Consumer<TopUpProvider>(
+                              builder: (BuildContext context, topup, child) {
+                                return Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  height: 50,
+                                  child: TextFLD(
+                                    teksHint: "IDR",
+                                    teks: topup.getControllerTeks(_controllerTeks),
+                                  ),
+                                );
+                              },
                             ),
                           ],
                         ),
@@ -111,6 +99,7 @@ class _WalletTopupState extends State<WalletTopup> {
                             SizedBox(
                               height: 14,
                             ),
+                            TopUpBtn(),
                             // Container(
                             //   child: Wrap(
                             //     spacing: 15,
@@ -305,14 +294,17 @@ class _WalletTopupState extends State<WalletTopup> {
             Positioned(
               bottom: 0,
               child: GestureDetector(
-                onTap: (){},
+                onTap: () {},
                 child: Container(
                   alignment: Alignment.center,
                   width: MediaQuery.of(context).size.width,
                   height: 40,
                   color: warnaApp.secondary,
                   padding: EdgeInsets.fromLTRB(18, 10, 18, 10),
-                  child: Text("Top Up", style: Theme.of(context).textTheme.bodySmall,),
+                  child: Text(
+                    "Top Up",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
                 ),
               ),
             ),

@@ -42,11 +42,15 @@ class UserProfiling1 extends StatelessWidget {
                         margin: EdgeInsets.only(
                           top: 45,
                         ),
-                        child: ElevatedButton(
-                          onPressed: (){},
-                          child: Text(
-                            "Next",
-                          ),
+                        child: Consumer<KategoriProvider>(
+                          builder: (BuildContext context, kategori, child) {
+                            return ElevatedButton(
+                              onPressed: kategori.btnCount == 1 ? null : () {},
+                              child: Text(
+                                "Next",
+                              ),
+                            );
+                          },
                         ),
                       ),
                     ],
@@ -54,7 +58,6 @@ class UserProfiling1 extends StatelessWidget {
                 ),
               ],
             ),
-
             Container(
               alignment: Alignment.centerLeft,
               width: MediaQuery.of(context).size.width,

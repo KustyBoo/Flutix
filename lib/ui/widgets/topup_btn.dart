@@ -2,25 +2,25 @@
 
 part of 'widgets.dart';
 
-class ElevatedBtnIcon extends StatelessWidget {
-  ElevatedBtnIcon({super.key});
+class TopUpBtn extends StatelessWidget {
+  TopUpBtn({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<KategoriProvider>(
-      builder: (BuildContext context, kategori, child) {
+    return Consumer<TopUpProvider>(
+      builder: (BuildContext context, topup, child) {
         return Wrap(
-            crossAxisAlignment: WrapCrossAlignment.start,
-            spacing: 8,
-            runSpacing: 10,
-            children: List.generate(kategori.kategoriData.length, (index) {
-              var item = kategori.kategoriData[index];
-              return ElevatedButton.icon(
-                icon: Icon(item.icon),
+          crossAxisAlignment: WrapCrossAlignment.start,
+          spacing: 8,
+          runSpacing: 10,
+          children: List.generate(
+            topup.btnCount,
+            (index) {
+              var item = topup.nominalData[index];
+              return ElevatedButton(
                 onPressed: () {
-                  kategori.updateBtn(index);
+                  topup.updateBtn(index);
                 },
-                label: Text(item.nama),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: item.bgColor,
                   foregroundColor: item.foreColor,
@@ -40,12 +40,15 @@ class ElevatedBtnIcon extends StatelessWidget {
                     color: item.foreColor,
                   ),
                   minimumSize: Size(
-                    item.btnWidth,
-                    item.btnHeight,
+                    MediaQuery.of(context).size.width * 0.45,
+                    42,
                   ),
                 ),
+                child: Text(item.jumlah),
               );
-            },),);
+            },
+          ),
+        );
       },
     );
   }
