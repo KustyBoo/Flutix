@@ -173,7 +173,9 @@ class SignUp1 extends StatelessWidget {
                 height: 70,
                 child: IconButton(
                   padding: EdgeInsets.all(0),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   icon: Icon(
                     Icons.arrow_back_ios,
                     size: 32,
