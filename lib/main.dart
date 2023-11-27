@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutix/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
+import 'package:image_picker/image_picker.dart';
 
 import 'ui/widgets/widgets.dart';
 import 'ui/screens/screens.dart';
@@ -46,7 +47,8 @@ class MyApp extends StatelessWidget {
           "/userProfiling2": (context) => UserProfiling2(),
           "/home": (context) => BottomNavScreen(),
           "/jadwal": (context) => JadwalFilm(), // buat tes halaman
-          "/signup":(context)=> SignUp1(),
+          "/signup1":(context)=> SignUp1(),
+          "/signup2":(context)=> SignUp2(),
           "/movieDetail": (context) => DetailMoviePage(),
           "/login":(context) => LoginPage(),
           "/tempat":(context) => SelectSeatPage(),

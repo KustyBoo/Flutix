@@ -1,7 +1,17 @@
 part of 'screens.dart';
 
-class SignUp1 extends StatelessWidget {
-  const SignUp1({Key? key});
+class SignUp1 extends StatefulWidget {
+  SignUp1({Key? key});
+
+  @override
+  State<SignUp1> createState() => _SignUp1State();
+}
+
+class _SignUp1State extends State<SignUp1> {
+  final TextEditingController ctrlEmail = TextEditingController();
+  final TextEditingController ctrlNama = TextEditingController();
+  final TextEditingController ctrlPassword = TextEditingController();
+  final TextEditingController ctrlConfirmPass = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -82,6 +92,7 @@ class SignUp1 extends StatelessWidget {
                         ),
                       ),
                       TextField(
+                        obscuringCharacter: '•',
                         decoration: InputDecoration(
                           hintText: 'Type Here...', hintStyle: TextStyle(
                             color: Color(0xFFB9C1A0),
@@ -104,6 +115,8 @@ class SignUp1 extends StatelessWidget {
                         ),
                       ),
                       TextField(
+                        obscuringCharacter: '•',
+                        obscureText: true,
                         decoration: InputDecoration(
                           hintText: 'Type Here...', hintStyle: TextStyle(
                             color: Color(0xFFB9C1A0),
@@ -129,7 +142,10 @@ class SignUp1 extends StatelessWidget {
                               borderRadius: BorderRadius.circular(4),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            PlaceholderUser(email: ctrlEmail.text,nama: ctrlNama.text,password: ctrlPassword.text);
+                            Navigator.pushNamed(context, "/signup2");
+                          },
                           child: 
                           Text(
                             "Continue",

@@ -1,12 +1,62 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, no_leading_underscores_for_local_identifiers
 part of 'screens.dart';
 
-class SignUp2 extends StatelessWidget {
+class SignUp2 extends StatefulWidget {
+  @override
+  State<SignUp2> createState() => _SignUp2State();
+}
+
+class _SignUp2State extends State<SignUp2> {
+  String imageUrl = "";
+
+  uploadImage() async {
+    final _firebaseStorage = FirebaseStorage.instance;
+    final _imagePicker = ImagePicker();
+    XFile? image;
+
+    // Check Permissions
+    await Permission.photos.request();
+    var permissionStatus = await Permission.photos.status;
+
+    if (permissionStatus.isGranted) {
+      // Select Image
+      image = await _imagePicker.pickImage(source: ImageSource.gallery);
+
+      if (image != null) {
+        var file = File(image.path);
+
+        try {
+          // Upload to Firebase
+          var snapshot = await _firebaseStorage
+              .ref()
+              .child(
+                  'images/imageName_${DateTime.now().millisecondsSinceEpoch}')
+              .putFile(file);
+
+          // Get the download URL
+          var downloadUrl = await snapshot.ref.getDownloadURL();
+
+          setState(() {
+            imageUrl = downloadUrl;
+          });
+
+          print('Image uploaded successfully.');
+        } catch (e) {
+          print('Error uploading image: $e');
+        }
+      } else {
+        print('No Image Path Received');
+      }
+    } else {
+      print('Permission not granted. Try Again with permission access');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Stack (
+        body: Stack(
           children: [
             ListView(
               children: [
@@ -65,7 +115,10 @@ class SignUp2 extends StatelessWidget {
                                   color: Color(0xFF606C38),
                                 ),
                                 child: IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    uploadImage();
+                                    print("masuk");
+                                  },
                                   padding: EdgeInsets.all(0),
                                   icon: Icon(
                                     Icons.add,
@@ -119,7 +172,9 @@ class SignUp2 extends StatelessWidget {
                 height: 70,
                 child: IconButton(
                   padding: EdgeInsets.all(0),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   icon: Icon(
                     Icons.arrow_back_ios,
                     size: 32,

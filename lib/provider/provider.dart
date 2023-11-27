@@ -7,3 +7,4 @@ part 'movie_provider.dart';
 part 'page_provider.dart';
 part 'kategoriBtn_provider.dart';
 part 'walletTopupBtn_provider.dart';
+part 'user_provider.dart';

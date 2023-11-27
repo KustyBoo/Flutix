@@ -44,7 +44,10 @@ dependencies:
   google_fonts: ^6.1.0
   shimmer: ^3.0.0
   firebase_core: ^2.22.0
+  firebase_storage: ^11.5.2
   provider: ^6.1.1
+  image_picker: ^1.0.4
+  permission_handler: ^11.0.1
 
 dev_dependencies:
   flutter_test:
