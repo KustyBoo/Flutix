@@ -7,6 +7,6 @@ class Theater {
 }
 
 List<Theater> dummyTheaters = [
-  Theater("BTM 21"),
-  Theater("AEON MALL SENTUL CITIY XXI"),
+  Theater("BIG MALL XXI"),
+  Theater("CITY CENTRUM XXI"),
 ];
