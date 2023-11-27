@@ -7,8 +7,10 @@ class ElevatedBtn extends StatelessWidget {
       {super.key,
       required this.teksCustom,
       this.btnClicked,
-      this.fungsiCustom});
+      this.fungsiCustom,
+      this.isdis});
 
+  bool? isdis = false;
   final String teksCustom;
   final Function()? fungsiCustom;
 
@@ -20,7 +22,7 @@ class ElevatedBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: fungsiCustom,
+      onPressed: !isdis! ? fungsiCustom : null,
       child: SizedBox(
         height: 50,
         child: Padding(

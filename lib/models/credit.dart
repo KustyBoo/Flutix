@@ -1,10 +1,7 @@
 part of 'models.dart';
 
-class Credit extends Equatable {
+class Credit {
   final String? profilePath;
   final String name;
   const Credit({this.profilePath, required this.name});
-
-  @override
-  List<Object> get props => [name];
 }

@@ -1,6 +1,6 @@
 part of 'models.dart';
 
-class Movie extends Equatable {
+class Movie {
   final String title;
   final double voteAverage;
   final String posterPath;
@@ -23,7 +23,4 @@ class Movie extends Equatable {
       posterPath: json['poster_path'],
       overview: json['overview'],
       backdropPath: json['backdrop_path']);
-
-  @override
-  List<Object> get props => [id, title, voteAverage, posterPath, overview];
 }

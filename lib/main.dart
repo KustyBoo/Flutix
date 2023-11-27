@@ -45,14 +45,14 @@ class MyApp extends StatelessWidget {
           "/userProfiling1": (context) => UserProfiling1(),
           "/userProfiling2": (context) => UserProfiling2(),
           "/home": (context) => BottomNavScreen(),
-          "/tes": (context) => JadwalFilm(), // buat tes halaman
+          "/jadwal": (context) => JadwalFilm(), // buat tes halaman
           "/signup":(context)=> SignUp1(),
           "/movieDetail": (context) => DetailMoviePage(),
           "/login":(context) => LoginPage(),
           "/tempat":(context) => SelectSeatPage(),
         },
         theme: temaApp,
-        initialRoute: "/walletTopUp",
+        initialRoute: "/home",
       ),
     );
   }

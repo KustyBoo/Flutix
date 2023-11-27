@@ -22,8 +22,10 @@ class SelectableBox extends StatelessWidget {
       required this.isSelected,
       this.child,
       this.label,
-      this.onTap});
+      this.onTap,
+      required this.jadwal});
 
+  bool jadwal = false;
   @override
   Widget build(BuildContext context) {
     var textFont = teksApp.bodySmall!;
@@ -33,10 +35,9 @@ class SelectableBox extends StatelessWidget {
         height: height,
         width: width,
         margin: margin,
-        decoration: BoxDecoration(
-            color: isSelected
-                ? activeColor
-                : (isDisabled ? warnaApp.onPrimary : warnaApp.primaryContainer)),
+        decoration: !jadwal ? BoxDecoration(
+            color: isSelected ? activeColor : (isDisabled ? warnaApp.onPrimary : warnaApp.primaryContainer)) :
+            BoxDecoration(color: isSelected ? warnaApp.onPrimary : warnaApp.primary),
         child: Center(
           child: child ??
               Text(label ?? '',

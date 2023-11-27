@@ -275,7 +275,7 @@ class DetailMoviePage extends StatelessWidget {
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: warnaApp.secondary),
                             onPressed: () {
-                              Navigator.pushNamed(context, '/ordering',
+                              Navigator.pushNamed(context, '/jadwal',
                                   arguments: {'movieDetail': movieDetail});
                             },
                             child: Text(

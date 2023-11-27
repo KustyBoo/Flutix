@@ -134,6 +134,7 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
             children: List.generate(
                 numberofSeats[i],
                 (j) => (SelectableBox(
+                  jadwal: false,
                       height: 50.0,
                       width: 50.0,
                       margin: EdgeInsets.only(
