@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
           "/tempat":(context) => SelectSeatPage(),
         },
         theme: temaApp,
-        initialRoute: "/login",
+        initialRoute: "/tempat",
       ),
     );
   }
