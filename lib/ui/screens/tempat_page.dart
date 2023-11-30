@@ -30,72 +30,73 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
-        height: MediaQuery.of(context).size.height * 0.8,
+      child: Expanded(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
-              children: [
-                Material(
-                  color: Colors.transparent,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: Row(
-                      children: [
-                        SizedBox(
-                          width: 48,
-                          height: 70,
-                          child: IconButton(
-                            padding: EdgeInsets.all(0),
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.arrow_back_ios,
-                              size: 32,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 5),
-                          child: Text(
-                            "Big Mall XXI",
-                            style: Theme.of(context).textTheme.displayLarge,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(height: 20),
-                Material(
-                  color: Colors.transparent,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  Material(
+                    color: Colors.transparent,
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          seatsAvailableIndikator('Available'),
-                          seatsAvailableIndikator('Not Available'),
-                          seatsAvailableIndikator('Your Seat'),
+                          SizedBox(
+                            width: 48,
+                            height: 70,
+                            child: IconButton(
+                              padding: EdgeInsets.all(0),
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.arrow_back_ios,
+                                size: 32,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(left: 5),
+                            child: Text(
+                              "Big Mall XXI",
+                              style: Theme.of(context).textTheme.displayLarge,
+                            ),
+                          ),
                         ],
                       ),
                     ),
                   ),
-                ),
-                Divider(
-                  height: 50,
-                  thickness: 3,
-                  color: warnaApp.secondary,
-                ),
-                SizedBox(height: 20),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.6,
-                  width: MediaQuery.of(context).size.width,
-                  child: generateSeats(),
-                ),
-              ],
+                  SizedBox(height: 20),
+                  Material(
+                    color: Colors.transparent,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            seatsAvailableIndikator('Available'),
+                            seatsAvailableIndikator('Not Available'),
+                            seatsAvailableIndikator('Your Seat'),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Divider(
+                    height: 50,
+                    thickness: 3,
+                    color: warnaApp.secondary,
+                  ),
+            Expanded(
+              child: ListView(
+                children: [
+                  SizedBox(height: 20),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.6,
+                    width: MediaQuery.of(context).size.width,
+                    child: generateSeats(),
+                  ),
+                ],
+              ),
             ),
             Column(
               children: [
