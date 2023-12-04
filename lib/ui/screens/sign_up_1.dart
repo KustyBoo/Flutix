@@ -13,6 +13,10 @@ class _SignUp1State extends State<SignUp1> {
   final TextEditingController ctrlPassword = TextEditingController();
   final TextEditingController ctrlConfirmPass = TextEditingController();
 
+  bool passwordSalah = false;
+  bool emailKosong = false;
+  bool nameKosong = false;
+
   @override
   Widget build(BuildContext context) {
     final warnaBorder = Color(0xFFBC6C25);
@@ -31,7 +35,8 @@ class _SignUp1State extends State<SignUp1> {
                     left: 44,
                   ),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start, // Mengubah alignment menjadi kiri atas
+                    crossAxisAlignment: CrossAxisAlignment
+                        .start, // Mengubah alignment menjadi kiri atas
                     children: [
                       Center(
                         child: Text(
@@ -44,90 +49,120 @@ class _SignUp1State extends State<SignUp1> {
                         ),
                       ),
                       SizedBox(height: 41),
-                      Text("Email Address", style: TextStyle(
-                        color: warnaText,
-                        fontWeight: FontWeight.bold
+                      Text(
+                        "Email Address",
+                        style: TextStyle(
+                            color: warnaText, fontWeight: FontWeight.bold),
                       ),
-                    ),
                       TextField(
+                        controller: ctrlEmail,
                         decoration: InputDecoration(
-                          hintText: 'Type Here...', hintStyle: TextStyle(
-                            color: Color(0xFFB9C1A0),
-                            fontWeight: FontWeight.bold
-                          ),
+                          hintText:
+                              emailKosong ? 'Email is empty!' : 'Type Here...',
+                          hintStyle: TextStyle(
+                              color: Color(0xFFB9C1A0),
+                              fontWeight: FontWeight.bold),
                           labelStyle: Theme.of(context).textTheme.bodyText1,
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: warnaBorder), // Menggunakan warna borderColor
+                            borderSide: BorderSide(
+                                color:
+                                    warnaBorder), // Menggunakan warna borderColor
                           ),
-                          focusedBorder: OutlineInputBorder( // Menggunakan focusedBorder
-                            borderSide: BorderSide(color: warnaBorder), // Menggunakan warna borderColor
+                          focusedBorder: OutlineInputBorder(
+                            // Menggunakan focusedBorder
+                            borderSide: BorderSide(
+                                color:
+                                    warnaBorder), // Menggunakan warna borderColor
                           ),
                         ),
                       ),
                       SizedBox(height: 20),
-                      Text("Name", style: TextStyle(
-                        color: warnaText,
-                        fontWeight: FontWeight.bold
-                        ),
+                      Text(
+                        "Name",
+                        style: TextStyle(
+                            color: warnaText, fontWeight: FontWeight.bold),
                       ),
                       TextField(
+                        controller: ctrlNama,
                         decoration: InputDecoration(
-                          hintText: 'Type Here...', hintStyle: TextStyle(
-                            color: Color(0xFFB9C1A0),
-                            fontWeight: FontWeight.bold
-                          ),
+                          hintText:
+                              nameKosong ? 'Name is empty!' : 'Type Here...',
+                          hintStyle: TextStyle(
+                              color: Color(0xFFB9C1A0),
+                              fontWeight: FontWeight.bold),
                           labelStyle: Theme.of(context).textTheme.bodyText1,
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: warnaBorder), // Menggunakan warna borderColor
+                            borderSide: BorderSide(
+                                color:
+                                    warnaBorder), // Menggunakan warna borderColor
                           ),
-                          focusedBorder: OutlineInputBorder( // Menggunakan focusedBorder
-                            borderSide: BorderSide(color: warnaBorder), // Menggunakan warna borderColor
+                          focusedBorder: OutlineInputBorder(
+                            // Menggunakan focusedBorder
+                            borderSide: BorderSide(
+                                color:
+                                    warnaBorder), // Menggunakan warna borderColor
                           ),
                         ),
                       ),
                       SizedBox(height: 20),
-                      Text("Password", style: TextStyle(
-                        color: warnaText,
-                        fontWeight: FontWeight.bold
-                        ),
+                      Text(
+                        "Password",
+                        style: TextStyle(
+                            color: warnaText, fontWeight: FontWeight.bold),
                       ),
                       TextField(
+                        controller: ctrlPassword,
                         obscuringCharacter: '•',
                         decoration: InputDecoration(
-                          hintText: 'Type Here...', hintStyle: TextStyle(
-                            color: Color(0xFFB9C1A0),
-                            fontWeight: FontWeight.bold
-                          ),
+                          hintText: passwordSalah
+                              ? 'Password dan confirmation different!'
+                              : 'Type Here...',
+                          hintStyle: TextStyle(
+                              color: Color(0xFFB9C1A0),
+                              fontWeight: FontWeight.bold),
                           labelStyle: Theme.of(context).textTheme.bodyText1,
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: warnaBorder), // Menggunakan warna borderColor
+                            borderSide: BorderSide(
+                                color:
+                                    warnaBorder), // Menggunakan warna borderColor
                           ),
-                          focusedBorder: OutlineInputBorder( // Menggunakan focusedBorder
-                            borderSide: BorderSide(color: warnaBorder), // Menggunakan warna borderColor
+                          focusedBorder: OutlineInputBorder(
+                            // Menggunakan focusedBorder
+                            borderSide: BorderSide(
+                                color:
+                                    warnaBorder), // Menggunakan warna borderColor
                           ),
                         ),
                         obscureText: true, // Hide the password
                       ),
                       SizedBox(height: 20),
-                      Text("Confirm Password", style: TextStyle(
-                        color: warnaText,
-                        fontWeight: FontWeight.bold
-                        ),
+                      Text(
+                        "Confirm Password",
+                        style: TextStyle(
+                            color: warnaText, fontWeight: FontWeight.bold),
                       ),
                       TextField(
+                        controller: ctrlConfirmPass,
                         obscuringCharacter: '•',
                         obscureText: true,
                         decoration: InputDecoration(
-                          hintText: 'Type Here...', hintStyle: TextStyle(
-                            color: Color(0xFFB9C1A0),
-                            fontWeight: FontWeight.bold
-                          ),
+                          hintText: passwordSalah
+                              ? 'Password dan confirmation different!'
+                              : 'Type Here...',
+                          hintStyle: TextStyle(
+                              color: Color(0xFFB9C1A0),
+                              fontWeight: FontWeight.bold),
                           labelStyle: Theme.of(context).textTheme.bodyText1,
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: warnaBorder), // Menggunakan warna borderColor
+                            borderSide: BorderSide(
+                                color:
+                                    warnaBorder), // Menggunakan warna borderColor
                           ),
-                          focusedBorder: OutlineInputBorder( // Menggunakan focusedBorder
-                            borderSide: BorderSide(color: warnaBorder), // Menggunakan warna borderColor
+                          focusedBorder: OutlineInputBorder(
+                            // Menggunakan focusedBorder
+                            borderSide: BorderSide(
+                                color:
+                                    warnaBorder), // Menggunakan warna borderColor
                           ),
                         ),
                       ),
@@ -143,11 +178,52 @@ class _SignUp1State extends State<SignUp1> {
                             ),
                           ),
                           onPressed: () {
-                            PlaceholderUser(email: ctrlEmail.text,nama: ctrlNama.text,password: ctrlPassword.text);
-                            Navigator.pushNamed(context, "/signup2");
+                            if (ctrlEmail.text == "") {
+                              setState(
+                                () {
+                                  emailKosong = true;
+                                },
+                              );
+                            }
+
+                            if (ctrlNama.text == "") {
+                              setState(
+                                () {
+                                  nameKosong = true;
+                                },
+                              );
+                            }
+
+                            if (ctrlConfirmPass.text != ctrlPassword.text ||
+                                ctrlConfirmPass.text == "" &&
+                                    ctrlPassword.text == "") {
+                              setState(
+                                () {
+                                  passwordSalah = true;
+                                },
+                              );
+                            }
+
+                            if (ctrlConfirmPass.text == ctrlPassword.text &&
+                                ctrlEmail.text != "" &&
+                                ctrlNama.text != "") {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SignUp2(
+                                    nama: ctrlNama.text,
+                                    email: ctrlEmail.text,
+                                    password: ctrlPassword.text,
+                                    confirmPassword: ctrlConfirmPass.text,
+                                  ),
+                                ),
+                              );
+                              nameKosong = false;
+                              emailKosong = false;
+                              passwordSalah = false;
+                            }
                           },
-                          child: 
-                          Text(
+                          child: Text(
                             "Continue",
                             style: TextStyle(
                               fontFamily: "Raleway",
@@ -157,19 +233,21 @@ class _SignUp1State extends State<SignUp1> {
                           ),
                         ),
                       ),
-
-                      SizedBox(height: 20,),
-                                            Center(
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Center(
                         child: TextButton(
                           onPressed: () {
-                            // Tambahkan fungsi navigasi ke halaman Sign In di sini
+                            Navigator.pop(context);
                           },
                           child: Text(
                             "Sign In",
                             style: TextStyle(
                               fontSize: 25,
                               color: Color(0xFFBC6C25), // Warna teks "Sign In"
-                              fontWeight: FontWeight.bold, // Membuat tebal (bold)
+                              fontWeight:
+                                  FontWeight.bold, // Membuat tebal (bold)
                             ),
                           ),
                         ),

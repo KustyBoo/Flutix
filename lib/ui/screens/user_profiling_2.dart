@@ -3,11 +3,66 @@
 part of 'screens.dart';
 
 class UserProfiling2 extends StatefulWidget {
+  String nama;
+  String email;
+  String password;
+  String confirmPassword;
+  String profilepicture;
+  List<String> selectedGenre;
+
+  UserProfiling2({
+    required this.nama,
+    required this.email,
+    required this.password,
+    required this.confirmPassword,
+    required this.profilepicture,
+    required this.selectedGenre,
+  });
+
   @override
   State<UserProfiling2> createState() => _UserProfiling2State();
 }
 
 class _UserProfiling2State extends State<UserProfiling2> {
+  bool _loading = false;
+  Auth _auth = Auth();
+
+  void handleSubmit() async {
+    final name = widget.nama;
+    final email = widget.email;
+    final password = widget.password;
+    final confirmPassword = widget.confirmPassword;
+    final profilePicture = widget.profilepicture;
+    final genre = widget.selectedGenre;
+
+    if (password != confirmPassword) {
+      return;
+    }
+
+    setState(() => _loading = true);
+
+    try {
+      await _auth.regis(
+          name, email, password, confirmPassword, genre, profilePicture, "");
+
+      User newUser = User(
+        name: name,
+        email: email,
+        password: password,
+        confirmPassword: confirmPassword,
+        genre: genre,
+        language: "",
+        profilePicture: profilePicture,
+      );
+
+      Provider.of<ProviderUser>(context, listen: false).addUser(newUser);
+      // Navigasi ke halaman success jika diperlukan
+      // Navigator.pushNamed(context, "/SuccessPage");
+    } catch (e) {
+      print('Registration failed: $e');
+    }
+  }
+
   List<bool> btnClicked = List.generate(10, (index) => false);
   List<String> teksBtn = [
     "Bahasa Indonesia",
@@ -95,16 +150,30 @@ class _UserProfiling2State extends State<UserProfiling2> {
                           top: 45,
                         ),
                         child: ElevatedButton(
-                          onPressed: btnAktif
-                              ? () {
-                                  setState(() {
-                                    btnAktif = false;
-                                  });
-                                }
-                              : null,
-                          child: Text(
-                            "Next",
-                          ),
+                          onPressed: () {
+                            handleSubmit();
+                            Navigator.pop(context);
+                            Navigator.pushNamed(context, "/login");
+                          },
+                          // onPressed: btnAktif
+                          //     ? () {
+                          //         setState(() {
+                          //           btnAktif = false;
+                          //         });
+                          //       }
+                          //     : null,
+                          child: _loading
+                              ? SizedBox(
+                                  width: 20,
+                                  height: 20,
+                                  child: CircularProgressIndicator(
+                                    color: Colors.white,
+                                    strokeWidth: 2,
+                                  ),
+                                )
+                              : Text(
+                                  "Next",
+                                ),
                         ),
                       ),
                     ],

@@ -12,9 +12,7 @@ import 'provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(const MyApp());
 }
@@ -30,7 +28,6 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => KategoriProvider()),
         ChangeNotifierProvider(create: (context) => TopUpProvider()),
       ],
-
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         builder: (context, child) {
@@ -43,18 +40,15 @@ class MyApp extends StatelessWidget {
           "/successCheckout": (context) => SuccessCheckout(),
           "/wallet": (context) => Wallet(),
           "/walletTopUp": (context) => WalletTopup(),
-          "/userProfiling1": (context) => UserProfiling1(),
-          "/userProfiling2": (context) => UserProfiling2(),
           "/home": (context) => BottomNavScreen(),
           "/jadwal": (context) => JadwalFilm(), // buat tes halaman
-          "/signup1":(context)=> SignUp1(),
-          "/signup2":(context)=> SignUp2(),
+          "/signup1": (context) => SignUp1(),
           "/movieDetail": (context) => DetailMoviePage(),
-          "/login":(context) => LoginPage(),
-          "/tempat":(context) => SelectSeatPage(),
+          "/login": (context) => LoginPage(),
+          "/tempat": (context) => SelectSeatPage(),
         },
         theme: temaApp,
-        initialRoute: "/tempat",
+        initialRoute: "/login",
       ),
     );
   }

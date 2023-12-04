@@ -2,6 +2,18 @@
 part of 'screens.dart';
 
 class SignUp2 extends StatefulWidget {
+  String nama;
+  String email;
+  String password;
+  String confirmPassword;
+
+  SignUp2({
+    required this.nama,
+    required this.email,
+    required this.password,
+    required this.confirmPassword,
+  });
+
   @override
   State<SignUp2> createState() => _SignUp2State();
 }
@@ -145,7 +157,20 @@ class _SignUp2State extends State<SignUp2> {
                               borderRadius: BorderRadius.circular(4),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => UserProfiling1(
+                                  nama: widget.nama,
+                                  email: widget.email,
+                                  password: widget.password,
+                                  confirmPassword: widget.confirmPassword,
+                                  profilepicture: "",
+                                ),
+                              ),
+                            );
+                          },
                           child: Text(
                             "Create Account",
                             style: TextStyle(

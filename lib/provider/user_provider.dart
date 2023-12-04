@@ -2,35 +2,17 @@
 
 part of 'provider.dart';
 
-class PlaceholderUser{
-  String nama;
-  String email;
-  String password;
+class ProviderUser extends ChangeNotifier {
+  final List<User> _users = [];
 
-  PlaceholderUser({
-    required this.nama,
-    required this.email,
-    required this.password,
-  });
+  UnmodifiableListView<User> get users => UnmodifiableListView(_users);
 
-  void disposeUser(){
-    nama = "";
-    email = "";
-    password = "";
+  int get userCount {
+    return _users.length;
   }
 
-  String getNama(String _nama){
-    _nama = nama;
-    return _nama;
-  }
-
-  String getEmail(String _email){
-    _email = email;
-    return _email;
-  }
-
-  String getPassword(String _password){
-    _password = password;
-    return _password;
+  void addUser(User newUser) {
+    _users.add(newUser);
+    notifyListeners();
   }
 }

@@ -3,8 +3,24 @@
 part of 'screens.dart';
 
 class UserProfiling1 extends StatelessWidget {
+  String nama;
+  String email;
+  String password;
+  String confirmPassword;
+  String profilepicture;
+
+  UserProfiling1({
+    required this.nama,
+    required this.email,
+    required this.password,
+    required this.confirmPassword,
+    required this.profilepicture,
+  });
+
   @override
   Widget build(BuildContext context) {
+    List<String> genre = [];
+
     return SafeArea(
       child: Scaffold(
         body: Stack(
@@ -45,7 +61,25 @@ class UserProfiling1 extends StatelessWidget {
                         child: Consumer<KategoriProvider>(
                           builder: (BuildContext context, kategori, child) {
                             return ElevatedButton(
-                              onPressed: kategori.btnCount == 1 ? null : () {},
+                              onPressed: () {
+                                for (String item in kategori.kategoriClicked) {
+                                  genre.add(item);
+                                }
+                                print(genre);
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => UserProfiling2(
+                                      nama: nama,
+                                      email: email,
+                                      password: password,
+                                      confirmPassword: confirmPassword,
+                                      profilepicture: "",
+                                      selectedGenre: genre,
+                                    ),
+                                  ),
+                                );
+                              },
                               child: Text(
                                 "Next",
                               ),

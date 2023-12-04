@@ -131,17 +131,17 @@ class KategoriProvider extends ChangeNotifier {
     return kategoriData.length;
   }
 
-  final List<int> kategoriClicked = [];
+  final List<String> kategoriClicked = [];
 
   void updateBtn(int index) {
     if (kategoriClicked.contains(index) == false) {
       kategoriData[index].bgColor = warnaApp.secondary;
       kategoriData[index].foreColor = warnaApp.primary;
-      kategoriClicked.add(index);
+      kategoriClicked.add(kategoriData[index].nama);
     } else if (kategoriClicked.contains(index) == true) {
       kategoriData[index].bgColor = warnaApp.primary;
       kategoriData[index].foreColor = warnaApp.secondary;
-      kategoriClicked.remove(index);
+      kategoriClicked.remove(kategoriData[index].nama);
     }
     if (kategoriClicked.length == 5) {
       kategoriData[index].bgColor = warnaApp.primary;
