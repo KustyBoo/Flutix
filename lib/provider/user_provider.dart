@@ -3,15 +3,15 @@
 part of 'provider.dart';
 
 class ProviderUser extends ChangeNotifier {
-  final List<User> _users = [];
+  final List<UserData> _users = [];
 
-  UnmodifiableListView<User> get users => UnmodifiableListView(_users);
+  UnmodifiableListView<UserData> get users => UnmodifiableListView(_users);
 
   int get userCount {
     return _users.length;
   }
 
-  void addUser(User newUser) {
+  void addUser(UserData newUser) {
     _users.add(newUser);
     notifyListeners();
   }

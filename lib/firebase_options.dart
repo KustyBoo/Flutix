@@ -44,37 +44,37 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyA_5GiucXTzkDvjBWqZ4TtoFnNd7EZZh1Y',
-    appId: '1:825194586192:web:04d9959f7d05ee0e14f155',
-    messagingSenderId: '825194586192',
-    projectId: 'flutix-bf4f4',
-    authDomain: 'flutix-bf4f4.firebaseapp.com',
-    storageBucket: 'flutix-bf4f4.appspot.com',
+    apiKey: 'AIzaSyBquI3YokCj8L_QI6J5Zu-Qm5MvQti0LsE',
+    appId: '1:470314519606:web:12d774143c41fa589ddc97',
+    messagingSenderId: '470314519606',
+    projectId: 'fluttix-db300',
+    authDomain: 'fluttix-db300.firebaseapp.com',
+    storageBucket: 'fluttix-db300.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCRk1aD2eR_nFMdSpvPMzEiEVp1LBvljPg',
-    appId: '1:825194586192:android:f58f7bc69276681414f155',
-    messagingSenderId: '825194586192',
-    projectId: 'flutix-bf4f4',
-    storageBucket: 'flutix-bf4f4.appspot.com',
+    apiKey: 'AIzaSyAbBlyGwKOPFy9zYf9FlTo6SqCPeEUYImI',
+    appId: '1:470314519606:android:da963b6cd93bf2049ddc97',
+    messagingSenderId: '470314519606',
+    projectId: 'fluttix-db300',
+    storageBucket: 'fluttix-db300.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyB0N_q6kyStfv31tHoEcdoMiKgcwuClfyM',
-    appId: '1:825194586192:ios:a0dd1fb66cf62ad114f155',
-    messagingSenderId: '825194586192',
-    projectId: 'flutix-bf4f4',
-    storageBucket: 'flutix-bf4f4.appspot.com',
+    apiKey: 'AIzaSyC7P64YNyn4IjgZ5WmjICdXL44pxYwyv1s',
+    appId: '1:470314519606:ios:69b7558986dba6b79ddc97',
+    messagingSenderId: '470314519606',
+    projectId: 'fluttix-db300',
+    storageBucket: 'fluttix-db300.appspot.com',
     iosBundleId: 'com.example.flutix',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyB0N_q6kyStfv31tHoEcdoMiKgcwuClfyM',
-    appId: '1:825194586192:ios:189d87fa8217a27f14f155',
-    messagingSenderId: '825194586192',
-    projectId: 'flutix-bf4f4',
-    storageBucket: 'flutix-bf4f4.appspot.com',
+    apiKey: 'AIzaSyC7P64YNyn4IjgZ5WmjICdXL44pxYwyv1s',
+    appId: '1:470314519606:ios:2928f52d0ded365e9ddc97',
+    messagingSenderId: '470314519606',
+    projectId: 'fluttix-db300',
+    storageBucket: 'fluttix-db300.appspot.com',
     iosBundleId: 'com.example.flutix.RunnerTests',
   );
 }

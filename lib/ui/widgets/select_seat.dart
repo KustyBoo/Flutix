@@ -37,7 +37,8 @@ class SelectableBox extends StatelessWidget {
         margin: margin,
         decoration: !jadwal ? BoxDecoration(
             color: isSelected ? activeColor : (isDisabled ? warnaApp.onPrimary : warnaApp.primaryContainer)) :
-            BoxDecoration(color: isSelected ? warnaApp.onPrimary : warnaApp.primary),
+            BoxDecoration(color: isSelected ? warnaApp.onPrimary : warnaApp.primary,
+            border: Border.all()),
         child: Center(
           child: child ??
               Text(label ?? '',

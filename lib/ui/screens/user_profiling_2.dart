@@ -9,6 +9,7 @@ class UserProfiling2 extends StatefulWidget {
   String confirmPassword;
   String profilepicture;
   List<String> selectedGenre;
+  String selectedLanguage = '';
 
   UserProfiling2({
     required this.nama,
@@ -34,6 +35,7 @@ class _UserProfiling2State extends State<UserProfiling2> {
     final confirmPassword = widget.confirmPassword;
     final profilePicture = widget.profilepicture;
     final genre = widget.selectedGenre;
+    final language = widget.selectedLanguage;
 
     if (password != confirmPassword) {
       return;
@@ -42,22 +44,22 @@ class _UserProfiling2State extends State<UserProfiling2> {
     setState(() => _loading = true);
 
     try {
-      await _auth.regis(
-          name, email, password, confirmPassword, genre, profilePicture, "");
+      await _auth.regis(name, email, password, confirmPassword, genre,
+          profilePicture, language);
 
-      User newUser = User(
+      UserData newUser = UserData(
         name: name,
         email: email,
         password: password,
         confirmPassword: confirmPassword,
         genre: genre,
-        language: "",
+        language: language,
         profilePicture: profilePicture,
       );
 
       Provider.of<ProviderUser>(context, listen: false).addUser(newUser);
       // Navigasi ke halaman success jika diperlukan
-      // Navigator.pushNamed(context, "/SuccessPage");
+      Navigator.pushNamed(context, "/login");
     } catch (e) {
       print('Registration failed: $e');
     }
@@ -79,10 +81,15 @@ class _UserProfiling2State extends State<UserProfiling2> {
 
   bool btnAktif = false;
 
-  void cek() {
-    btnClicked.forEach((btn) {
-      if (btn) {
-        btnAktif = true;
+  void cek(int clickedBtnIndex) {
+    setState(() {
+      for (int i = 0; i < btnClicked.length; i++) {
+        if (i == clickedBtnIndex) {
+          btnClicked[i] = true; 
+          widget.selectedLanguage = teksBtn[i];
+        } else {
+          btnClicked[i] = false; 
+        }
       }
     });
 
@@ -136,8 +143,7 @@ class _UserProfiling2State extends State<UserProfiling2> {
                               teksCustom: teksBtn[index],
                               fungsiCustom: () {
                                 setState(() {
-                                  btnClicked[index] = !btnClicked[index];
-                                  cek();
+                                  cek(index);
                                 });
                               },
                             ),
@@ -152,8 +158,6 @@ class _UserProfiling2State extends State<UserProfiling2> {
                         child: ElevatedButton(
                           onPressed: () {
                             handleSubmit();
-                            Navigator.pop(context);
-                            Navigator.pushNamed(context, "/login");
                           },
                           // onPressed: btnAktif
                           //     ? () {

@@ -1,6 +1,6 @@
 part of 'models.dart';
 
-class User {
+class UserData {
   String? name;
   String? email;
   String? password;
@@ -9,7 +9,7 @@ class User {
   String? language;
   List<String>? genre;
 
-  User({
+  UserData({
     this.name,
     this.email,
     this.password,
@@ -19,9 +19,9 @@ class User {
     this.genre,
   });
 
-  factory User.fromFirebaseUser(firebase_auth.User? firebaseUser) {
+  factory UserData.fromFirebaseUser(firebase_auth.User? firebaseUser) {
     if (firebaseUser == null) {
-      return User(
+      return UserData(
         name: '',
         email: '',
         password: '',
@@ -32,7 +32,7 @@ class User {
       );
     }
 
-    return User(
+    return UserData(
       name: '',
       email: '',
       password: '',

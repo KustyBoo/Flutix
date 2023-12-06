@@ -22,7 +22,7 @@ class ElevatedBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: fungsiCustom,
       child: SizedBox(
         height: 50,
         child: Padding(

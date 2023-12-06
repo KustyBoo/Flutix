@@ -4,7 +4,7 @@ class Auth {
   final auth.FirebaseAuth _auth = auth.FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Future<User> regis(
+  Future<UserData> regis(
       String name,
       String email,
       String password,
@@ -31,7 +31,7 @@ class Auth {
         },
       );
 
-      return User(
+      return UserData(
         name: name,
         email: email,
         password: password,

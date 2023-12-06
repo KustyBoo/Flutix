@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => MovieProvider()),
         ChangeNotifierProvider(create: (context) => KategoriProvider()),
         ChangeNotifierProvider(create: (context) => TopUpProvider()),
+        ChangeNotifierProvider(create: (context) => ProviderUser()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

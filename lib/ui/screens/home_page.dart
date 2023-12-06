@@ -160,7 +160,7 @@ class MovieCardPlaying extends StatelessWidget {
           child: Text(
             movie.title,
             style: teksApp.bodyMedium!
-                .copyWith(fontSize: 14, fontWeight: FontWeight.w600),
+                .copyWith(fontSize: 12, fontWeight: FontWeight.w600),
           ),
         ),
       ],

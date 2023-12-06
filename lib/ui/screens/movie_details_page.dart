@@ -12,6 +12,10 @@ class DetailMoviePage extends StatelessWidget {
     int movieId = arguments['id'];
 
     return Scaffold(
+      appBar: AppBar(
+        
+      ),
+      extendBodyBehindAppBar: true,
       body: Stack(
         children: [
           FutureBuilder(
@@ -51,31 +55,31 @@ class DetailMoviePage extends StatelessWidget {
                                       ),
                                       //Icon Back button
 
-                                      Positioned.fill(
-                                        bottom: -30,
-                                        child: Align(
-                                          alignment: Alignment.bottomCenter,
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                                color: warnaApp.primary,
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                    color: Colors.grey,
-                                                    spreadRadius: 0.1,
-                                                    blurRadius: 5,
-                                                  ),
-                                                ]),
-                                            width: 260,
-                                            child: Padding(
-                                                padding:
-                                                    const EdgeInsets.all(15.0),
-                                                child: Text(movieDetail!.title,
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                        fontSize: 24))),
-                                          ),
-                                        ),
-                                      )
+                                      // Positioned.fill(
+                                      //   bottom: -30,
+                                      //   child: Align(
+                                      //     alignment: Alignment.bottomCenter,
+                                      //     child: Container(
+                                      //       decoration: BoxDecoration(
+                                      //           color: warnaApp.primary,
+                                      //           boxShadow: [
+                                      //             BoxShadow(
+                                      //               color: Colors.grey,
+                                      //               spreadRadius: 0.1,
+                                      //               blurRadius: 5,
+                                      //             ),
+                                      //           ]),
+                                      //       width: 260,
+                                      //       child: Padding(
+                                      //           padding:
+                                      //               const EdgeInsets.all(15.0),
+                                      //           child: Text(movieDetail!.title,
+                                      //               textAlign: TextAlign.center,
+                                      //               style: TextStyle(
+                                      //                   fontSize: 24))),
+                                      //     ),
+                                      //   ),
+                                      // )
                                     ],
                                   )
                                 : Stack(

@@ -133,7 +133,9 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                     child: Text('Check-Out',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20)),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/home");
+                    },
                   ),
                 ),
               ],
