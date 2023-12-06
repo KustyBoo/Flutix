@@ -140,6 +140,7 @@ class _UserProfiling2State extends State<UserProfiling2> {
                                   cek();
                                 });
                               },
+                              
                             ),
                           ),
                         ),
@@ -155,13 +156,7 @@ class _UserProfiling2State extends State<UserProfiling2> {
                             Navigator.pop(context);
                             Navigator.pushNamed(context, "/login");
                           },
-                          // onPressed: btnAktif
-                          //     ? () {
-                          //         setState(() {
-                          //           btnAktif = false;
-                          //         });
-                          //       }
-                          //     : null,
+                          // onPressed: 
                           child: _loading
                               ? SizedBox(
                                   width: 20,
