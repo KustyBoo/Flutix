@@ -31,58 +31,75 @@ class _JadwalFilmState extends State<JadwalFilm> {
     MovieDetail movieDetail = arguments['movieDetail'];
 
     return SafeArea(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Scaffold(
+        backgroundColor: warnaApp.primary,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
             child: ListView(
               children: [
-                const SizedBox(
-                  height: 36.0,
-                ),
-                Row(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(
-                          left: defaultMargin, bottom: 20.0),
-                      child: GestureDetector(
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 70,
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    color: warnaApp.primary,
+                  ),
+                  child: Row(
+                    children: [
+                      GestureDetector(
                         onTap: () {
                           Navigator.pop(context);
                         },
-                        child: const Icon(Icons.arrow_back, size: 24),
+                        child: Icon(Icons.arrow_back_ios, size: 32),
                       ),
-                    ),
-                  ],
+                      SizedBox(width: 8),
+                      Text(
+                        movieDetail.title,
+                        style: Theme.of(context).textTheme.displayLarge,
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 25,
                 ),
                 Container(
                   margin:
                       const EdgeInsets.only(left: defaultMargin, bottom: 16.0),
                   child: titleSection('Choose Date'),
                 ),
-                SizedBox(
+                SizedBox(height: 25),
+                Container(
                   height: 90,
+                  margin: const EdgeInsets.symmetric(horizontal: defaultMargin),
+                  decoration: BoxDecoration(
+                    color: warnaApp.onPrimary, // Set the background color here
+                  ),
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: 7,
                     itemBuilder: (BuildContext context, int index) {
                       return SelectableBox(
                         jadwal: true,
-                          onTap: () {
-                            setState(() {
-                              selectedDate = dates[index];
-                              if (dates[index].day != DateTime.now().day) {
-                                selectedTime = null;
-                              }
-                            });
-                          },
-                          height: 90,
-                          width: 70,
-                          isSelected: dates[index].day == selectedDate.day,
-                          label:
-                              '${dates[index].day.toString()}\n${nama_hari[dates[index].weekday - 1]}',
-                          margin: EdgeInsets.only(
-                              right: index == 6 ? 0 : 16,
-                              left: index == 0 ? defaultMargin : 0));
+                        onTap: () {
+                          setState(() {
+                            selectedDate = dates[index];
+                            if (dates[index].day != DateTime.now().day) {
+                              selectedTime = null;
+                            }
+                          });
+                        },
+                        height: 90,
+                        width: 90,
+                        isSelected: dates[index].day == selectedDate.day,
+                        label:
+                            '${dates[index].day.toString()}\n${nama_hari[dates[index].weekday - 1]}',
+                        margin: EdgeInsets.only(
+                            right: index == 6 ? 0 : 16,
+                            left: index == 0 ? defaultMargin : 0),
+                      );
                     },
                   ),
                 ),
@@ -93,23 +110,46 @@ class _JadwalFilmState extends State<JadwalFilm> {
               ],
             ),
           ),
-          ElevatedBtn(
-            isdis: !isValid,
-            teksCustom: "Order",
-            fungsiCustom: () {
-              if (isValid) {}
-            },
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: 60.0,
+            child: ElevatedButton(
+              style:
+                  ElevatedButton.styleFrom(backgroundColor: warnaApp.secondary),
+              onPressed: () {
+                Navigator.pushNamed(context, '/tempat');
+                // arguments: {'movieDetail': movieDetail});
+              },
+              child: Text(
+                "Order",
+                style: TextStyle(
+                    color: warnaApp.primary,
+                    fontFamily: "raleway",
+                    fontSize: 16),
+              ),
+            ),
           ),
+          // ElevatedBtn(
+          //   isdis: !isValid,
+          //   teksCustom: "Order",
+          //   fungsiCustom: () {
+          //     if (isValid) {}
+          //   },
+          // ),
         ],
-      ),
+        ),
+      ) 
     );
   }
 
   Widget titleSection(title) {
     return Text(
       title,
-      style: teksApp.bodyMedium!
-          .copyWith(fontSize: 20, fontWeight: FontWeight.w600),
+      style: teksApp.bodyMedium!.copyWith(
+        fontSize: 20,
+        fontWeight: FontWeight.w600,
+        decoration: TextDecoration.none, // Add this line to remove underline
+      ),
     );
   }
 

@@ -146,6 +146,7 @@ class _UserProfiling2State extends State<UserProfiling2> {
                                   cek(index);
                                 });
                               },
+                              
                             ),
                           ),
                         ),
@@ -159,13 +160,7 @@ class _UserProfiling2State extends State<UserProfiling2> {
                           onPressed: () {
                             handleSubmit();
                           },
-                          // onPressed: btnAktif
-                          //     ? () {
-                          //         setState(() {
-                          //           btnAktif = false;
-                          //         });
-                          //       }
-                          //     : null,
+                          // onPressed: 
                           child: _loading
                               ? SizedBox(
                                   width: 20,
