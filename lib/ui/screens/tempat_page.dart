@@ -95,12 +95,7 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                     width: MediaQuery.of(context).size.width,
                     child: generateSeats(),
                   ),
-                ],
-              ),
-            ),
-            Column(
-              children: [
-                Material(
+                  Material(
                   child: Container(
                     decoration: BoxDecoration(
                         border: Border.all(color: warnaApp.surface, width: 3)),
@@ -118,6 +113,12 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                     ),
                   ),
                 ),
+                ],
+              ),
+            ),
+            Column(
+              children: [
+                
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: 50,
