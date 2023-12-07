@@ -128,7 +128,8 @@ class CheckoutPage extends StatelessWidget {
                       ),
                       SizedBox(height: 10),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10), // Tambahkan margin kiri dan kanan
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 10), // Tambahkan margin kiri dan kanan
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -143,29 +144,45 @@ class CheckoutPage extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(
+                        height: 10,
+                      ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10), // Tambahkan margin kiri dan kanan
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 10), // Tambahkan margin kiri dan kanan
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Service fees", style: Theme.of(context).textTheme.displayMedium),
-                            Text("Rp.5.000 x 3",style:Theme.of(context).textTheme.displayMedium),
+                            Text("Service fees",
+                                style:
+                                    Theme.of(context).textTheme.displayMedium),
+                            Text("Rp.5.000 x 3",
+                                style:
+                                    Theme.of(context).textTheme.displayMedium),
                           ],
                         ),
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(
+                        height: 10,
+                      ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10), // Tambahkan margin kiri dan kanan
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 10), // Tambahkan margin kiri dan kanan
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Total price", style: Theme.of(context).textTheme.displayMedium),
-                            Text("Rp.315.000", style: Theme.of(context).textTheme.displayMedium),
+                            Text("Total price",
+                                style:
+                                    Theme.of(context).textTheme.displayMedium),
+                            Text("Rp.315.000",
+                                style:
+                                    Theme.of(context).textTheme.displayMedium),
                           ],
                         ),
                       ),
-                      SizedBox(height: 15,),
+                      SizedBox(
+                        height: 15,
+                      ),
                       DottedLine(
                         lineThickness: 2,
                         dashLength: 4,
@@ -181,7 +198,9 @@ class CheckoutPage extends StatelessWidget {
                           textAlign: TextAlign.left,
                         ),
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(
+                        height: 10,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -200,21 +219,24 @@ class CheckoutPage extends StatelessWidget {
                                 minimumSize: Size(90, 50),
                               ),
                               onPressed: () {
-                                // Tambahkan aksi yang sesuai ketika tombol "Top Up" ditekan.
+                                Navigator.pushNamed(context, '/walletTopUp');
                               },
                               child: Text(
                                 "Top Up",
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 16,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.black,
+                                  color: warnaApp.primary,
+                                  fontFamily: "raleway",
                                 ),
                               ),
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(height: 20,),
+                      SizedBox(
+                        height: 20,
+                      ),
                       DottedLine(
                         lineThickness: 2,
                         dashLength: 4,
@@ -228,17 +250,23 @@ class CheckoutPage extends StatelessWidget {
             ),
             Positioned(
               bottom: 0,
-              child: GestureDetector(
-                onTap: () {},
-                child: Container(
-                  alignment: Alignment.center,
-                  width: MediaQuery.of(context).size.width,
-                  height: 50,
-                  color: warnaApp.secondary,
-                  padding: EdgeInsets.fromLTRB(18, 10, 18, 10),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 60.0,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: warnaApp.secondary,
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/checkoutSukses');
+                  },
                   child: Text(
                     "Pay",
-                    style: Theme.of(context).textTheme.bodySmall,
+                    style: TextStyle(
+                      color: warnaApp.primary,
+                      fontFamily: "raleway",
+                      fontSize: 16,
+                    ),
                   ),
                 ),
               ),

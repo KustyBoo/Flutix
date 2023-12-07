@@ -47,9 +47,11 @@ class MyApp extends StatelessWidget {
           "/movieDetail": (context) => DetailMoviePage(),
           "/login": (context) => LoginPage(),
           "/tempat": (context) => SelectSeatPage(),
+          "/checkout":(context) => CheckoutPage(),
+          "checkoutSukses":(context) => SuccessCheckout()
         },
         theme: temaApp,
-        initialRoute: "/login",
+        initialRoute: "/checkout",
       ),
     );
   }

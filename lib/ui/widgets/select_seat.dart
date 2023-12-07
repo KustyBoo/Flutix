@@ -46,10 +46,15 @@ class SelectableBox extends StatelessWidget {
             color: isSelected ? warnaApp.onPrimary : warnaApp.primary),
         child: Center(
           child: child ??
-              Text(label ?? '',
-                  textAlign: TextAlign.center,
-                  style: textFont
-                  ),
+            Text(
+              label ?? '',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: !isSelected ? warnaApp.onPrimary : warnaApp.primary,
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
         ),
       ),
     );

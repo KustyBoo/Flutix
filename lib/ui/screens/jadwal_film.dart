@@ -75,7 +75,7 @@ class _JadwalFilmState extends State<JadwalFilm> {
                   height: 90,
                   margin: const EdgeInsets.symmetric(horizontal: defaultMargin),
                   decoration: BoxDecoration(
-                    color: warnaApp.onPrimary, // Set the background color here
+                    color: warnaApp.onPrimaryContainer, // Set the background color here
                   ),
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
