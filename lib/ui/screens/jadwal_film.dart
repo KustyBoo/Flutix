@@ -117,8 +117,8 @@ class _JadwalFilmState extends State<JadwalFilm> {
               style:
                   ElevatedButton.styleFrom(backgroundColor: warnaApp.secondary),
               onPressed: () {
-                Navigator.pushNamed(context, '/tempat');
-                // arguments: {'movieDetail': movieDetail});
+                Navigator.pushNamed(context, '/tempat',
+                arguments: {'movieDetail': movieDetail});
               },
               child: Text(
                 "Order",

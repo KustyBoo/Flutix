@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     context,
                                     '/movieDetail',
                                     arguments: {
-                                      'id': movieProvider.movies[index].id
+                                      'movies': movieProvider.movies[index]
                                     },
                                   );
                                 },

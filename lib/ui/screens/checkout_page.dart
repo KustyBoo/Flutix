@@ -5,6 +5,9 @@ class CheckoutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Map arguments = ModalRoute.of(context)?.settings.arguments as Map;
+    MovieDetail movieDetail = arguments['movieDetail'];
+
     return SafeArea(
       child: Scaffold(
         body: Stack(
@@ -25,7 +28,7 @@ class CheckoutPage extends StatelessWidget {
                         child: IconButton(
                           padding: EdgeInsets.all(0),
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectSeatPage()));
+                            Navigator.pop(context);
                           },
                           icon: Icon(
                             Icons.arrow_back_ios,
@@ -65,7 +68,7 @@ class CheckoutPage extends StatelessWidget {
                               height: MediaQuery.of(context).size.height/6,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
-                                  image: AssetImage("assets/logobatman.png"),
+                                  image: NetworkImage('https://image.tmdb.org/t/p/w1280/${movieDetail?.backdropPath ?? movieDetail?.posterPath}'),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -75,7 +78,7 @@ class CheckoutPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "The Batman (2023)",
+                                  movieDetail.title,
                                   style:
                                       Theme.of(context).textTheme.displayLarge,
                                 ),

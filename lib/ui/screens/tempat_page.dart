@@ -29,65 +29,67 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
 
   @override
   Widget build(BuildContext context) {
+    Map arguments = ModalRoute.of(context)?.settings.arguments as Map;
+    var moviedetol = arguments['movieDetail'];
     return SafeArea(
       child: Expanded(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-                  Material(
-                    color: Colors.transparent,
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 48,
-                            height: 70,
-                            child: IconButton(
-                              padding: EdgeInsets.all(0),
-                              onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>JadwalFilm()));
-                              },
-                              icon: Icon(
-                                Icons.arrow_back_ios,
-                                size: 32,
-                              ),
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(left: 5),
-                            child: Text(
-                              "Big Mall XXI",
-                              style: Theme.of(context).textTheme.displayLarge,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Material(
-                    color: Colors.transparent,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            seatsAvailableIndikator('Available'),
-                            seatsAvailableIndikator('Not Available'),
-                            seatsAvailableIndikator('Your Seat'),
-                          ],
+            Material(
+              color: Colors.transparent,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 48,
+                      height: 70,
+                      child: IconButton(
+                        padding: EdgeInsets.all(0),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(
+                          Icons.arrow_back_ios,
+                          size: 32,
                         ),
                       ),
                     ),
+                    Container(
+                      margin: EdgeInsets.only(left: 5),
+                      child: Text(
+                        "Big Mall XXI",
+                        style: Theme.of(context).textTheme.displayLarge,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            Material(
+              color: Colors.transparent,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      seatsAvailableIndikator('Available'),
+                      seatsAvailableIndikator('Not Available'),
+                      seatsAvailableIndikator('Your Seat'),
+                    ],
                   ),
-                  Divider(
-                    height: 50,
-                    thickness: 3,
-                    color: warnaApp.secondary,
-                  ),
+                ),
+              ),
+            ),
+            Divider(
+              height: 50,
+              thickness: 3,
+              color: warnaApp.secondary,
+            ),
             Expanded(
               child: ListView(
                 children: [
@@ -98,29 +100,29 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                     child: generateSeats(),
                   ),
                   Material(
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: warnaApp.surface, width: 3)),
-                    height: 50,
-                    width: MediaQuery.of(context).size.width,
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Screen',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: warnaApp.secondary,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          border:
+                              Border.all(color: warnaApp.surface, width: 3)),
+                      height: 50,
+                      width: MediaQuery.of(context).size.width,
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Screen',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: warnaApp.secondary,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
                 ],
               ),
             ),
             Column(
               children: [
-                
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: 50,
@@ -136,7 +138,8 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20)),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>CheckoutPage()));
+                      Navigator.pushNamed(context, '/checkout',
+                          arguments: {'movieDetail': moviedetol});
                     },
                   ),
                 ),

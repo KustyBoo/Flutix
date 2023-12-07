@@ -9,12 +9,9 @@ class DetailMoviePage extends StatelessWidget {
     List<Credit>? credits = [];
 
     Map arguments = ModalRoute.of(context)?.settings.arguments as Map;
-    int movieId = arguments['id'];
+    int movieId = arguments['movies'].id;
 
     return Scaffold(
-      appBar: AppBar(
-        
-      ),
       extendBodyBehindAppBar: true,
       body: Stack(
         children: [
