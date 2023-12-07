@@ -45,7 +45,9 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                             height: 70,
                             child: IconButton(
                               padding: EdgeInsets.all(0),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>JadwalFilm()));
+                              },
                               icon: Icon(
                                 Icons.arrow_back_ios,
                                 size: 32,
@@ -134,7 +136,7 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20)),
                     onPressed: () {
-                      Navigator.pushNamed(context, "/home");
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>CheckoutPage()));
                     },
                   ),
                 ),

@@ -26,7 +26,9 @@ class SuccessCheckout extends StatelessWidget {
                         height: 70,
                         child: IconButton(
                           padding: EdgeInsets.all(0),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomNavScreen()));
+                          },
                           icon: Icon(
                             Icons.arrow_back_ios,
                             size: 32,
@@ -93,7 +95,9 @@ class SuccessCheckout extends StatelessWidget {
             Positioned(
               bottom: 0,
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomNavScreen()));
+                },
                 child: Container(
                   alignment: Alignment.center,
                   width: MediaQuery.of(context).size.width,
@@ -101,7 +105,7 @@ class SuccessCheckout extends StatelessWidget {
                   color: warnaApp.secondary,
                   padding: EdgeInsets.fromLTRB(18, 10, 18, 10),
                   child: Text(
-                    "My Ticket",
+                    "Back To Home",
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ),

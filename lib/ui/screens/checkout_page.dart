@@ -24,7 +24,9 @@ class CheckoutPage extends StatelessWidget {
                         height: 70,
                         child: IconButton(
                           padding: EdgeInsets.all(0),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectSeatPage()));
+                          },
                           icon: Icon(
                             Icons.arrow_back_ios,
                             size: 32,
@@ -59,8 +61,8 @@ class CheckoutPage extends StatelessWidget {
                         child: Row(
                           children: [
                             Container(
-                              width: 200,
-                              height: 225,
+                              width: MediaQuery.of(context).size.width/4,
+                              height: MediaQuery.of(context).size.height/6,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                   image: AssetImage("assets/logobatman.png"),
@@ -258,7 +260,7 @@ class CheckoutPage extends StatelessWidget {
                     backgroundColor: warnaApp.secondary,
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/checkoutSukses');
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SuccessCheckout()));
                   },
                   child: Text(
                     "Pay",

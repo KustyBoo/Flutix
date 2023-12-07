@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
           "checkoutSukses":(context) => SuccessCheckout()
         },
         theme: temaApp,
-        initialRoute: "/checkout",
+        initialRoute: "/jadwal",
       ),
     );
   }
